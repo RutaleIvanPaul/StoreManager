@@ -1,0 +1,1564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+            android:background="#d0d0d0"
+            android:padding="2dp"
+                  android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/qr_logo"
+                    android:layout_margin="10dp"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="QR code access control - UGX2,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Events management with onsite access control with QR-codes and Bar-codes and back end access of the database"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ticket_logo_red"
+                    android:layout_margin="10dp"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="E-ticketing and e-cards - UGX1,500,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Event e-ticketing management and solutions including e-cards like e-posters for all kinds of events"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/social_media"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Social media management - UGX3,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:id="@+id/message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Social media  management solutions and digital marketing with use of info graphic designing for commercial purposes"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/web_analytics_red"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Website analytics - UGX3,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Website analytics involving website designing, marketing and management"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/av"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Audio Visual - UGX1,500,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Corporate grade Audio Visual services including wireless microphones and lavalieres and a mixer for audio control of conferences and other large audience events"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/video_shoot_red"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Video shoot - UGX1,500,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Video Production for product and personality marketing and management"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/business_card"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Business cards, posters - UGX1,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Print media designing of business cards, banners, posters for commercial purposes"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/animations_red"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Animations - UGX2,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Motion graphic designing which includes animations, a voice over artist for narrations and  a script writer to create an attractive script"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/pr"
+                    android:layout_margin="10dp"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Public Relations - UGX1,500,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Online Public Relation Services like e-branding, advertising and online press releases for product and personality arrangements"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/youtube_red"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="YouTube channels - UGX1,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Setup of YouTube channels and live video streaming services for conferences, product and personality reasons."
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/search"
+                    android:layout_margin="10dp"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Search Engine Management - UGX2,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Search Engine Optimization that helps clients earn that online competitive advantage and increases our clients' online visibility on all social media platforms"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/email_red"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="E-mail  management - UGX1,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="E-mail marketing and management with e-mail follow ups, RSVP follow-ups and attendance confirmation of events."
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/pay_click"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pay-Per-Click - UGX1,500,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Pay Per Click Advertising which helps in boosting our clients' website performances by appearing on all search engines and major social media platforms"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/reputation_red" />
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reputation Management - UGX1,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Reputation Management Services for products and personalities through brand preservation, strategic advertising and monitoring of clients' online reputations"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/photography"
+                    android:layout_margin="10dp"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Photography - UGX1,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Quality photography of about 6hours of an event with studio setting of back droops and lighting"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/videography_red"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Videography - UGX1,200,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Quality videography of about 6 hours with studio setting of backdrops and lighting, 360 camera, and editing of the footage"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/content"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Content Management - UGX800,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Online Content generation, marketing and management of our clients  media accounts which strengthens our clients business stories and attracts new prospects"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/mobile_marketing_red"
+                    android:layout_margin="10dp"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mobile Marketing - UGX1,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Mobile Optimization like mobile website designing and mobile social media advertising."
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/qr_logo"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="QR coded cards - UGX1,200,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Creation of QR-code business cards and Identification cards for easy access  of various events"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/conversion_red"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Conversion Management - UGX1,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Conversion optimization which involves using attractive strategies to change the clients' viewers into buying customers"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/photoshoot"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hour photo shoot - UGX1,000,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="One hour photo shoots for product and personality purposes involving make-up and dressing artists with both indoor and outdoor studio setting plus an extra hour for rehearsals."
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/printed_red"
+                    android:layout_margin="10dp"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Printed tags and cards - UGX800,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Printing services for both commercial and corporate purposes whereby we print identification tags and business cards with QR codes."
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/footage"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Footage sales - UGX700,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Sale of footage shot by Mapenzi Digital for documentary and advertising purposes"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/architectural_red"
+                    android:layout_margin="10dp"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Architectural design - UGX1,300,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="3D Architectural computer motion graphic designing"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/uiux"
+                    android:layout_margin="10dp"/>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UI and UX design - UGX1,500,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="UI and UX interface layout designing whereby we design a short video/animation advert of our clients’ websites and apps for marketing purposes"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/documentary_production_red"
+                    android:layout_margin="10dp"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Documentary Production - UGX1,500,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Documentary production services where we shoot a client’s  life for a week and provide 2 DVDs and an online version on a secured server"
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
+
+            <CheckBox
+                    android:id="@+id/checkBox27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+
+                    android:layout_margin="10dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/custom"
+                    android:layout_margin="10dp"/>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10sp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Customizing websites - UGX1,500,000"
+                        android:textColor="#000"
+                        android:textSize="13sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Customization websites where our clients can make their own designs for any category i.e. shirts, caps, business cards, banners and so much more for printing purposes."
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"/>
+
+        </LinearLayout>
+
+
+
+        <Button
+                android:id="@+id/submit_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="5dp"
+                android:elevation="4dp"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:text="@string/submit"
+                android:textColor="#fff" />
+
+    </LinearLayout>
+</ScrollView>

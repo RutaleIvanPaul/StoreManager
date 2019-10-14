@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        android:padding="16dp" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/contact_form_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/contact_form"
+                android:textColor="@color/colorPrimary"
+                android:textSize="40sp"
+                android:typeface="serif" />
+
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <Button
+                    android:id="@+id/twitter"
+                    android:layout_width="76dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="84dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:drawableStart="@drawable/twitter"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                    android:id="@+id/instagram"
+                    android:layout_width="76dp"
+                    android:layout_height="55dp"
+                    android:layout_marginEnd="72dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:drawableStart="@drawable/instagram"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:hint="@string/client_name"
+                android:inputType="textPersonName" />
+
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorAccent"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
+
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:hint="@string/phone_number"
+                android:inputType="phone" />
+
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:hint="@string/company"
+                android:inputType="text" />
+
+        <include
+                android:id="@+id/spinner"
+                layout="@layout/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp" />
+
+
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="76dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/colorAccent"
+                android:breakStrategy="balanced"
+                android:fitsSystemWindows="true"
+                android:gravity="top"
+                android:hint="@string/message"
+                android:inputType="textMultiLine"
+                android:padding="5dp"
+                android:singleLine="false" />
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorAccent"
+                android:elevation="4dp"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:text="@string/submit"
+                android:textColor="#fff" />
+
+        <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:text="Developed By: Rutlale Ivan Paul \n +256 777 478 430 paulivan568@gmail.com" />
+
+    </LinearLayout>
+</ScrollView>

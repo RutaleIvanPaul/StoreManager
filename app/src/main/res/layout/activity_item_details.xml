@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+<android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+                                             android:layout_height="wrap_content">
+    <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/default_image" />
+
+    <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemImage"
+            tools:text="Sample title for news title that will" />
+
+    <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintStart_toStartOf="@+id/titleTextView"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+            tools:text="Sample title for news title that will and this will display how text shows up on the news app" />
+
+    <Button
+            android:id="@+id/watch_trailer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorAccent"
+            android:elevation="4dp"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
+            android:text="@string/watch_trailer"
+            android:textColor="#fff"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionTextView" />
+
+
+</android.support.constraint.ConstraintLayout>
+</ScrollView>
