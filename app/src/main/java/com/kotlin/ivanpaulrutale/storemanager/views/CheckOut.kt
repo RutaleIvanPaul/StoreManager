@@ -8,15 +8,18 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 import com.kotlin.ivanpaulrutale.storemanager.R
-import kotlinx.android.synthetic.main.fragment_check_out.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ART_NUMBER = "param1"
 private const val COLOR = "param2"
+private const val DESCRIPTION = "param3"
+private const val STORE = "param4"
 
 /**
  * A simple [Fragment] subclass.
@@ -30,6 +33,8 @@ class CheckOut : Fragment() {
     // TODO: Rename and change types of parameters
     private var art_number: String? = null
     private var color: String? = null
+    private var description: String? = null
+    private var store: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +42,8 @@ class CheckOut : Fragment() {
         arguments?.let {
             art_number = it.getString(ART_NUMBER)
             color = it.getString(COLOR)
+            description = it.getString(COLOR)
+            store = it.getString(COLOR)
         }
     }
 
@@ -48,6 +55,26 @@ class CheckOut : Fragment() {
         if (art_number != null){
             view.findViewById<TextInputEditText>(R.id.checkout_art_number).setText(art_number)
             view.findViewById<TextInputEditText>(R.id.checkout_color).setText(color)
+            view.findViewById<TextInputEditText>(R.id.checkout_description).setText(description)
+            view.findViewById<TextInputEditText>(R.id.checkout_store).setText(store)
+        }
+
+        view.findViewById<Button>(R.id.checkout_button).setOnClickListener {
+            val art_number = view.findViewById<EditText>(R.id.checkout_art_number)
+            val color = view.findViewById<EditText>(R.id.checkout_color)
+            val description = view.findViewById<EditText>(R.id.checkout_description)
+            val quantity = view.findViewById<EditText>(R.id.checkout_quantity)
+            val store = view.findViewById<EditText>(R.id.checkout_store)
+            val collector = view.findViewById<EditText>(R.id.checkout_collector)
+
+            val editTexts = arrayListOf<EditText>(art_number,color,description,quantity,store,collector)
+
+            if (noEmptyFields(editTexts)){
+
+                Toast.makeText(context,art_number.text,Toast.LENGTH_LONG).show()
+                changeFromFragmentToFragment(activity,Search())
+            }
+
         }
 
         // Inflate the layout for this fragment
@@ -100,11 +127,13 @@ class CheckOut : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: String, param2: String,param3: String,param4: String) =
             CheckOut().apply {
                 arguments = Bundle().apply {
                     putString(ART_NUMBER, param1)
                     putString(COLOR, param2)
+                    putString(DESCRIPTION, param3)
+                    putString(STORE, param4)
                 }
             }
     }

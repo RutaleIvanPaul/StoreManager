@@ -71,28 +71,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
-        var newFragment:Fragment?=null
+        var newFragment:Fragment = Fragment()
         when (item.itemId) {
             R.id.nav_search -> {
                 newFragment = Search()
-                replaceFragment(newFragment)
             }
-
             R.id.nav_check_in -> {
                 newFragment = CheckIn()
-                replaceFragment(newFragment)
             }
             R.id.nav_check_out -> {
                 newFragment = CheckOut()
-                replaceFragment(newFragment)
             }
             R.id.nav_reports -> {
                 newFragment = Reports()
-                replaceFragment(newFragment)
             }
-
         }
-        replaceFragment(newFragment!!)
+        changeFromActivityToFragment(this,newFragment)
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)

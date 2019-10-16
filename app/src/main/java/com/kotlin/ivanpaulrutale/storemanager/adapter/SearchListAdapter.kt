@@ -34,13 +34,9 @@ class SearchListAdapter: RecyclerView.Adapter<SearchListAdapter.ViewHolder>() {
         holder.titleTextView.text = item.name
 
         holder.itemView.setOnClickListener {view ->
-            var newCheckOutFragment = CheckOut.newInstance(item.name,item.name)
+            var newCheckOutFragment = CheckOut.newInstance(item.name,item.name,item.name,item.name)
             val activity = view.context as AppCompatActivity
-            activity.getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.content_frame, newCheckOutFragment)
-                .addToBackStack(null)
-                .commit()
+            changeFromclassToFragment(activity,newCheckOutFragment)
         }
     }
 
