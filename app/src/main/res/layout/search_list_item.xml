@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/searchlist_art_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="QR code access control - UGX2,000,000"
+                android:textColor="#000"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/searchlist_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Events management with onsite access control with QR-codes and Bar-codes and back end access of the database"
+                android:textColor="#868686"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/searchlist_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Events management with onsite access control with QR-codes and Bar-codes and back end access of the database"
+                android:textColor="#868686"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/searchlist_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Events management with onsite access control with QR-codes and Bar-codes and back end access of the database"
+                android:textColor="#868686"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/searchlist_store"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Events management with onsite access control with QR-codes and Bar-codes and back end access of the database"
+                android:textColor="#868686"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/searchlist_last_updated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Events management with onsite access control with QR-codes and Bar-codes and back end access of the database"
+                android:textColor="#868686"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            android:gravity="right" />
+
+    </LinearLayout>
+
+
