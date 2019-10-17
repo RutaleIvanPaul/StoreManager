@@ -9,23 +9,18 @@ import android.widget.EditText
 import android.widget.Toast
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.models.MonthListItem
+import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
 import java.lang.IllegalArgumentException
 
 var from_Report_details = false
 
-val listItemObjects:ArrayList<MonthListItem> = arrayListOf(
-    MonthListItem("January"),
-    MonthListItem("February"),
-    MonthListItem("March"),
-    MonthListItem("April"),
-    MonthListItem("May"),
-    MonthListItem("June"),
-    MonthListItem("July"),
-    MonthListItem("August"),
-    MonthListItem("September"),
-    MonthListItem("October"),
-    MonthListItem("November"),
-    MonthListItem("December")
+val listItemObjects:ArrayList<StoreItem> = arrayListOf(
+    StoreItem("art_number","color","description","quantity","store","last_updated"),
+    StoreItem("art_number1","color1","description1","quantity1","store1","last_updated1"),
+    StoreItem("art_number2","color2","description2","quantity2","store2","last_updated2"),
+    StoreItem("art_number3","color3","description3","quantity3","store3","last_updated3"),
+    StoreItem("art_number4","color4","description4","quantity4","store4","last_updated4"),
+    StoreItem("art_number5","color5","description5","quantity5","store5","last_updated5")
 )
 
 fun changeFromFragmentToFragment(activity:FragmentActivity?, fragment: Fragment){

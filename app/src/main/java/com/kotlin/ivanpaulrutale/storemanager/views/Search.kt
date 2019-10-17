@@ -14,6 +14,7 @@ import android.widget.SearchView
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.adapter.SearchListAdapter
 import com.kotlin.ivanpaulrutale.storemanager.models.MonthListItem
+import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,10 +47,10 @@ class Search : Fragment(), SearchView.OnQueryTextListener {
 
     private fun searchRecyclerView(newText: String?) {
         val userInput = newText?.toLowerCase()
-        var newList :ArrayList<MonthListItem> = arrayListOf()
+        var newList :ArrayList<StoreItem> = arrayListOf()
 
         for (item in listItemObjects){
-            if(item.name.toLowerCase().contains(userInput as CharSequence)){
+            if(item.art_number.toLowerCase().contains(userInput as CharSequence)){
                 newList.add(item)
             }
         }

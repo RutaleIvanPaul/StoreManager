@@ -10,6 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0183e57a-6ac8-4e71-8415-61a3b963122d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/search_list_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -20,24 +21,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/CustomAdapter.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/SearchListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/SearchListAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckIn.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckIn.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/models/ListItems.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/models/ListItems.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckOut.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckOut.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/Search.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/Search.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/ViewsUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/ViewsUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_camera.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_gallery.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_manage.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_order.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_send.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_share.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_slideshow.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_team.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_check_in.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_check_in.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_check_out.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_check_out.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,11 +57,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/SearchListAdapter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="66" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
-              <folding>
-                <element signature="e#56#439#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-66">
+              <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search_list_item.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/models/ListItems.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="141" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="141" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/Search.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-276">
+              <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -78,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/MainActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
+            <state relative-caret-position="240">
               <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
               <folding>
                 <element signature="e#54#501#0" expanded="true" />
@@ -87,59 +103,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_check_in.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
-              <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-              <folding>
-                <element signature="e#745#765#0" expanded="true" />
-                <element signature="e#1288#1303#0" expanded="true" />
-                <element signature="e#1918#1939#0" expanded="true" />
-                <element signature="e#2538#2556#0" expanded="true" />
-                <element signature="e#3146#3161#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckOut.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_check_out.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="63" lean-forward="true" selection-start-line="1" selection-end-line="3" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckIn.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="57" column="12" lean-forward="true" selection-start-line="57" selection-start-column="12" selection-end-line="63" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/ViewsUtils.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
-              <folding>
-                <element signature="e#54#383#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="22" column="73" selection-start-line="22" selection-start-column="73" selection-end-line="22" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckOut.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -182,12 +159,15 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_search.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckIn.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckOut.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/SearchListAdapter.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/ViewsUtils.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_check_out.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_check_in.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/models/ListItems.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/SearchListAdapter.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/ViewsUtils.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/Search.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/search_list_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckOut.kt" />
       </list>
     </option>
   </component>
@@ -390,7 +370,7 @@
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32970297" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32970297" />
       <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.27029702" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.27029702" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="8" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="bottom" id="Find" order="10" weight="0.32970297" />
@@ -398,7 +378,7 @@
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Preview" order="4" visible="true" weight="0.32960597" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.32960597" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
     <layout-to-restore>
@@ -431,7 +411,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/ui/gallery/GalleryFragment.kt" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/MainActivity.kt" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2" />
@@ -450,13 +429,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/mapenzidigital/views/SliderAdapter.kt" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/models/ListItems.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="36" lean-forward="true" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_item_details.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -473,34 +445,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_payment.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="84" column="16" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_payment_details.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_order.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_payment.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_payment_details.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_order.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_search_foreground.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -527,36 +474,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/slider_item.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/mapenzidigital/views/ContactActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_contact.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="89" column="24" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/CustomAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/slider_item.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/mapenzidigital/views/ContactActivity.kt" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_contact.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/logo_transparent.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -590,13 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/ReportListAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/Reports.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="516">
@@ -621,13 +534,6 @@
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/Search.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="843">
-          <caret line="145" selection-start-line="145" selection-end-line="145" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_logo_foreground.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -651,24 +557,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_team.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_slideshow.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_share.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_manage.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_home.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_order.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_team.png" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_slideshow.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_share.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_manage.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_home.png" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_order.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -679,34 +573,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckIn.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="57" column="12" lean-forward="true" selection-start-line="57" selection-start-column="12" selection-end-line="63" selection-end-column="13" />
+        <state relative-caret-position="368">
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/SearchListAdapter.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_check_out.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="66" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
-          <folding>
-            <element signature="e#56#439#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="6" column="55" selection-start-line="1" selection-end-line="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/ViewsUtils.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_check_in.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+        <state relative-caret-position="315">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/ReportListAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/models/ListItems.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="141" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/CustomAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
           <folding>
-            <element signature="e#54#383#0" expanded="true" />
+            <element signature="e#56#427#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/MainActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
+        <state relative-caret-position="240">
           <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
           <folding>
             <element signature="e#54#501#0" expanded="true" />
@@ -714,33 +636,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/ViewsUtils.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="22" column="73" selection-start-line="22" selection-start-column="73" selection-end-line="22" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/Search.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-276">
+          <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search_list_item.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/adapter/SearchListAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kotlin/ivanpaulrutale/storemanager/views/CheckOut.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_check_out.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="63" lean-forward="true" selection-start-line="1" selection-end-line="3" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_check_in.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-          <folding>
-            <element signature="e#745#765#0" expanded="true" />
-            <element signature="e#1288#1303#0" expanded="true" />
-            <element signature="e#1918#1939#0" expanded="true" />
-            <element signature="e#2538#2556#0" expanded="true" />
-            <element signature="e#3146#3161#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="478">
+          <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
         </state>
       </provider>
     </entry>

@@ -42,8 +42,8 @@ class CheckOut : Fragment() {
         arguments?.let {
             art_number = it.getString(ART_NUMBER)
             color = it.getString(COLOR)
-            description = it.getString(COLOR)
-            store = it.getString(COLOR)
+            description = it.getString(DESCRIPTION)
+            store = it.getString(STORE)
         }
     }
 
@@ -121,19 +121,19 @@ class CheckOut : Fragment() {
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
+         * @param art_number Parameter 1.
+         * @param color Parameter 2.
          * @return A new instance of fragment CheckOut.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String,param3: String,param4: String) =
+        fun newInstance(art_number: String, color: String, description: String, store: String) =
             CheckOut().apply {
                 arguments = Bundle().apply {
-                    putString(ART_NUMBER, param1)
-                    putString(COLOR, param2)
-                    putString(DESCRIPTION, param3)
-                    putString(STORE, param4)
+                    putString(ART_NUMBER, art_number)
+                    putString(COLOR, color)
+                    putString(DESCRIPTION, description)
+                    putString(STORE, store)
                 }
             }
     }
