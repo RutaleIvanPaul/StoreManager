@@ -27,12 +27,12 @@
     <string name="menu_reports">Reports</string>
 
 
-    <string name="art_number">Art. Number</string>
-    <string name="color">Color</string>
-    <string name="description">Description</string>
-    <string name="quantity">Quantity</string>
-    <string name="store">Store</string>
-    <string name="collector">Name of Collector</string>
+    <string name="art_number">art. number</string>
+    <string name="color">color</string>
+    <string name="description">description</string>
+    <string name="quantity">quantity</string>
+    <string name="store">store</string>
+    <string name="collector">collector</string>
 
     <string name="search_item">Search for an Item</string>
     <string name="sync">Refresh</string>
