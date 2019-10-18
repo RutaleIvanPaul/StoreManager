@@ -1,14 +1,11 @@
 package com.kotlin.ivanpaulrutale.storemanager.views
 
-import android.app.Activity
-import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
 import android.widget.EditText
 import android.widget.Toast
 import com.kotlin.ivanpaulrutale.storemanager.R
-import com.kotlin.ivanpaulrutale.storemanager.models.MonthListItem
 import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
 import java.lang.IllegalArgumentException
 

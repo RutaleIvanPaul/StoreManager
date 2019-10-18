@@ -1,5 +1,6 @@
 package com.kotlin.ivanpaulrutale.storemanager.views
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
@@ -11,6 +12,10 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import com.kotlin.ivanpaulrutale.storemanager.R
+import kotlinx.android.synthetic.main.activity_main.*
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
     CheckIn.OnFragmentInteractionListener,Search.OnFragmentInteractionListener,Reports.OnFragmentInteractionListener,CheckOut.OnFragmentInteractionListener {
@@ -47,6 +52,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         else{
             replaceFragment(Search())
         }
+
+        val mDrawerToggle = object : ActionBarDrawerToggle(
+         this, drawer_layout, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        ) {
+            override fun onDrawerClosed(view: View) {
+                super.onDrawerClosed(view)
+                // Do whatever you want here
+            }
+
+            override fun onDrawerOpened(drawerView: View) {
+                super.onDrawerOpened(drawerView)
+                val inputManager: InputMethodManager =getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                if( currentFocus != null) {
+                    inputManager.hideSoftInputFromWindow(
+                        currentFocus.windowToken,
+                        InputMethodManager.SHOW_FORCED
+                    )
+                }
+            }
+        }
+
+        drawer_layout.addDrawerListener(mDrawerToggle)
 
     }
 
@@ -92,6 +119,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
+
+
 
     fun replaceFragment(fragment: Fragment){
         val fragmentTransaction = supportFragmentManager.beginTransaction()

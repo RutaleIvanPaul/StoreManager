@@ -85,6 +85,7 @@ class Search : Fragment(), SearchView.OnQueryTextListener {
         recyclerView.adapter = recyclerViewAdapter
 
         val searchView = view?.findViewById<SearchView>(R.id.searchView)
+//        searchView?.requestFocus()
         searchView?.setOnQueryTextListener(this)
         // Inflate the layout for this fragment
         return view

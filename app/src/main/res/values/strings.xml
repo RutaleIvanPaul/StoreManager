@@ -38,6 +38,8 @@
     <string name="sync">Refresh</string>
 
 
+
+
     <string-array name="spinner_items">
         <item>Photography</item>
         <item>Videography</item>
