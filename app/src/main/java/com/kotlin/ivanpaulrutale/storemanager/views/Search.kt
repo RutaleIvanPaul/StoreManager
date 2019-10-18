@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.adapter.SearchListAdapter
 import com.kotlin.ivanpaulrutale.storemanager.models.MonthListItem
 import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
+import kotlinx.android.synthetic.main.fragment_search.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -87,8 +89,18 @@ class Search : Fragment(), SearchView.OnQueryTextListener {
         val searchView = view?.findViewById<SearchView>(R.id.searchView)
 //        searchView?.requestFocus()
         searchView?.setOnQueryTextListener(this)
+
+        val swipeRefresh = view?.findViewById<SwipeRefreshLayout>(R.id.swipe_refresh)
+        swipeRefresh?.setOnRefreshListener {
+            refreshSearchItems()
+            swipeRefresh?.isRefreshing = false
+        }
         // Inflate the layout for this fragment
         return view
+    }
+
+    private fun refreshSearchItems() {
+        //Function to re-fetch new and updated list of items
     }
 
     // TODO: Rename method, update argument and hook method into UI event
