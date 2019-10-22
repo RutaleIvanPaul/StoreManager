@@ -9,9 +9,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.*
 
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.adapter.ReportListAdapter
+import com.kotlin.ivanpaulrutale.storemanager.adapter.listItems_reports
+import com.kotlin.ivanpaulrutale.storemanager.utils.PdfManager
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,12 +51,25 @@ class Reports : Fragment() {
         val view = inflater.inflate(R.layout.fragment_reports, container, false)
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.reports_recycler_view)
+        val getPdf = view.findViewById<Button>(R.id.get_pdf)
         val linearLayoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = linearLayoutManager
 
         recyclerView.adapter = ReportListAdapter()
 
+        getPdf.setOnClickListener {
+            val height_of_item = view.findViewById<TextView>(R.id.titleTextView).height
+            val total_height_of_list = listItems_reports.size * height_of_item
+            generatePdf(this,view.findViewById(R.id.reports_layout))
+        }
+
         return view
+    }
+
+    private fun generatePdf(reports: Fragment,view: ScrollView) {
+        val height = view.getChildAt(0).height
+        val bitmap = PdfManager.loadBitmapFromView(view,view.getChildAt(0).width,view.getChildAt(0).height)
+        PdfManager.createPdf(reports.activity,bitmap)
     }
 
     // TODO: Rename method, update argument and hook method into UI event

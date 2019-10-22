@@ -15,6 +15,8 @@ import com.kotlin.ivanpaulrutale.storemanager.R
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import com.kotlin.ivanpaulrutale.storemanager.utils.changeFromActivityToFragment
+import com.kotlin.ivanpaulrutale.storemanager.utils.from_Report_details
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
@@ -113,7 +115,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 newFragment = Reports()
             }
         }
-        changeFromActivityToFragment(this,newFragment)
+        changeFromActivityToFragment(this, newFragment)
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)

@@ -12,7 +12,8 @@ import android.widget.EditText
 import android.widget.Toast
 
 import com.kotlin.ivanpaulrutale.storemanager.R
-import java.lang.IllegalArgumentException
+import com.kotlin.ivanpaulrutale.storemanager.utils.clearFields
+import com.kotlin.ivanpaulrutale.storemanager.utils.noEmptyFields
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

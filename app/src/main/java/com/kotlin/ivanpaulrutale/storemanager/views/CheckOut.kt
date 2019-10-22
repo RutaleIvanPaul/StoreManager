@@ -13,6 +13,8 @@ import android.widget.EditText
 import android.widget.Toast
 
 import com.kotlin.ivanpaulrutale.storemanager.R
+import com.kotlin.ivanpaulrutale.storemanager.utils.changeFromFragmentToFragment
+import com.kotlin.ivanpaulrutale.storemanager.utils.noEmptyFields
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,7 +74,10 @@ class CheckOut : Fragment() {
             if (noEmptyFields(editTexts)){
 
                 Toast.makeText(context,art_number.text,Toast.LENGTH_LONG).show()
-                changeFromFragmentToFragment(activity,Search())
+                changeFromFragmentToFragment(
+                    activity,
+                    Search()
+                )
             }
 
         }

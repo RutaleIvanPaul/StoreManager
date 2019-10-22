@@ -1,4 +1,4 @@
-package com.kotlin.ivanpaulrutale.storemanager.views
+package com.kotlin.ivanpaulrutale.storemanager.utils
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity

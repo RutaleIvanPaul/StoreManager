@@ -10,23 +10,31 @@ import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.models.MonthListItem
 import com.kotlin.ivanpaulrutale.storemanager.views.ItemDetails
 
+val listItems_reports:ArrayList<MonthListItem> = arrayListOf(
+    MonthListItem("January"),
+    MonthListItem("February"),
+    MonthListItem("March"),
+    MonthListItem("April"),
+    MonthListItem("May"),
+    MonthListItem("June"),
+    MonthListItem("June"),
+    MonthListItem("June"),
+    MonthListItem("June"),
+    MonthListItem("June"),
+    MonthListItem("June"),
+    MonthListItem("June"),
+    MonthListItem("June"),
+    MonthListItem("June"),
+    MonthListItem("July"),
+    MonthListItem("August"),
+    MonthListItem("September"),
+    MonthListItem("October"),
+    MonthListItem("November"),
+    MonthListItem("December")
+)
+
+
 class ReportListAdapter: RecyclerView.Adapter<ReportListAdapter.ViewHolder>() {
-
-    val listItems:ArrayList<MonthListItem> = arrayListOf(
-        MonthListItem("January"),
-        MonthListItem("February"),
-        MonthListItem("March"),
-        MonthListItem("April"),
-        MonthListItem("May"),
-        MonthListItem("June"),
-        MonthListItem("July"),
-        MonthListItem("August"),
-        MonthListItem("September"),
-        MonthListItem("October"),
-        MonthListItem("November"),
-        MonthListItem("December")
-    )
-
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val v = LayoutInflater.from(p0.context).inflate(R.layout.list_item,p0,false)
@@ -34,11 +42,11 @@ class ReportListAdapter: RecyclerView.Adapter<ReportListAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return listItems.size
+        return listItems_reports.size
     }
 
     override fun onBindViewHolder(holder:ViewHolder, position: Int) {
-        val item = listItems[position]
+        val item = listItems_reports[position]
         holder.titleTextView.text = item.name
 
         holder.itemView.setOnClickListener {view ->

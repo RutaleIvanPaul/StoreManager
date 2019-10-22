@@ -14,9 +14,8 @@ import android.widget.SearchView
 
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.adapter.SearchListAdapter
-import com.kotlin.ivanpaulrutale.storemanager.models.MonthListItem
 import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
-import kotlinx.android.synthetic.main.fragment_search.*
+import com.kotlin.ivanpaulrutale.storemanager.utils.listItemObjects
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
