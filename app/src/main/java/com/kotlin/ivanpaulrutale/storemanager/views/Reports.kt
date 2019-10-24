@@ -1,8 +1,11 @@
 package com.kotlin.ivanpaulrutale.storemanager.views
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -15,6 +18,8 @@ import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.adapter.ReportListAdapter
 import com.kotlin.ivanpaulrutale.storemanager.adapter.listItems_reports
 import com.kotlin.ivanpaulrutale.storemanager.utils.PdfManager
+import com.kotlin.ivanpaulrutale.storemanager.utils.reportlistItemObjects
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,18 +63,37 @@ class Reports : Fragment() {
         recyclerView.adapter = ReportListAdapter()
 
         getPdf.setOnClickListener {
-            val height_of_item = view.findViewById<TextView>(R.id.titleTextView).height
-            val total_height_of_list = listItems_reports.size * height_of_item
-            generatePdf(this,view.findViewById(R.id.reports_layout))
+            if(ActivityCompat.checkSelfPermission(context!!, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
+                generatePdf(this,view.findViewById(R.id.reports_layout))
+            }
+            else{
+                this.requestPermissions(
+                    arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                    1)
+            }
         }
+
 
         return view
     }
 
-    private fun generatePdf(reports: Fragment,view: ScrollView) {
-        val height = view.getChildAt(0).height
-        val bitmap = PdfManager.loadBitmapFromView(view,view.getChildAt(0).width,view.getChildAt(0).height)
-        PdfManager.createPdf(reports.activity,bitmap)
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                generatePdf(this,view?.findViewById(R.id.reports_layout))
+
+        }
+        else{
+            Toast.makeText(activity, "Please Grant Permissions!", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun generatePdf(reports: Fragment,view: View?) {
+        PdfManager.createPdf(reports.activity, reportlistItemObjects,"pdf1")
     }
 
     // TODO: Rename method, update argument and hook method into UI event

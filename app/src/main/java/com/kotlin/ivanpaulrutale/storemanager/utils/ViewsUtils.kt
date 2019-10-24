@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
 import android.widget.EditText
 import com.kotlin.ivanpaulrutale.storemanager.R
+import com.kotlin.ivanpaulrutale.storemanager.models.ReportItem
 import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
 
 var from_Report_details = false
@@ -57,6 +58,99 @@ val listItemObjects: ArrayList<StoreItem> = arrayListOf(
         "quantity5",
         "store5",
         "last_updated5"
+    )
+)
+
+val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
+    ReportItem(
+        "art_number",
+        "color",
+        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
+        "4",
+        "store",
+        "checked out",
+        "Collector Name"
+    ),
+    ReportItem(
+        "art_number",
+        "color",
+        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
+        "4",
+        "store",
+        "checked out",
+        "Collector Name"
+    ),
+    ReportItem(
+        "art_number2",
+        "color",
+        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
+        "6",
+        "store",
+        "checked out",
+        "Collector Name"
+    ),
+    ReportItem(
+        "art_number3",
+        "color",
+        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
+        "8",
+        "store",
+        "checked out",
+        "Collector Name"
+    ),
+    ReportItem(
+        "art_number3",
+        "color",
+        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
+        "8",
+        "store",
+        "checked out",
+        "Collector Name"
+    ),
+    ReportItem(
+        "art_number4",
+        "color",
+        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
+        "4",
+        "store",
+        "checked out",
+        "Collector Name"
+    ),
+    ReportItem(
+        "art_number4",
+        "color2",
+        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
+        "4",
+        "store",
+        "checked out",
+        "Collector Name"
+    ),
+    ReportItem(
+        "art_number5",
+        "color",
+        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
+        "3",
+        "store",
+        "checked out",
+        "Collector Name"
+    ),
+    ReportItem(
+        "art_number5",
+        "color",
+        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
+        "3",
+        "store",
+        "checked out",
+        "Collector Name"
+    ),
+    ReportItem(
+        "art_number2",
+        "color2",
+        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
+        "3",
+        "store",
+        "checked out",
+        "Collector Name"
     )
 )
 
