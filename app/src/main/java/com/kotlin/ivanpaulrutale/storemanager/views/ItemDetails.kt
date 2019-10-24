@@ -1,9 +1,11 @@
 package com.kotlin.ivanpaulrutale.storemanager.views
 
-import android.support.v7.app.AppCompatActivity
+
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.kotlin.ivanpaulrutale.storemanager.R
+import com.kotlin.ivanpaulrutale.storemanager.utils.from_Report_details
 
 class ItemDetails : AppCompatActivity() {
 
