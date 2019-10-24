@@ -1,9 +1,10 @@
 package com.kotlin.ivanpaulrutale.storemanager.views
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
-import android.support.v7.app.AppCompatActivity
+
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
 
@@ -60,29 +61,29 @@ val listItemObjects: ArrayList<StoreItem> = arrayListOf(
     )
 )
 
-fun changeFromFragmentToFragment(activity: FragmentActivity?, fragment: Fragment) {
-    activity?.supportFragmentManager
-        ?.beginTransaction()
-        ?.replace(R.id.content_frame, fragment)
-        ?.addToBackStack(null)
-        ?.commit()
-}
-
-fun changeFromActivityToFragment(activity: AppCompatActivity?, fragment: Fragment) {
-    activity?.supportFragmentManager
-        ?.beginTransaction()
-        ?.replace(R.id.content_frame, fragment)
-        ?.addToBackStack(null)
-        ?.commit()
-}
-
-fun changeFromclassToFragment(activity: AppCompatActivity, fragment: Fragment) {
-    activity.supportFragmentManager
-        .beginTransaction()
-        .replace(R.id.content_frame, fragment)
-        .addToBackStack(null)
-        .commit()
-}
+//fun changeFromFragmentToFragment(activity: FragmentActivity?, fragment: Fragment) {
+//    activity?.supportFragmentManager
+//        ?.beginTransaction()
+//        ?.replace(R.id.content_frame, fragment)
+//        ?.addToBackStack(null)
+//        ?.commit()
+//}
+//
+//fun changeFromActivityToFragment(activity: AppCompatActivity?, fragment: Fragment) {
+//    activity?.supportFragmentManager
+//        ?.beginTransaction()
+//        ?.replace(R.id.content_frame, fragment)
+//        ?.addToBackStack(null)
+//        ?.commit()
+//}
+//
+//fun changeFromclassToFragment(activity: AppCompatActivity, fragment: Fragment) {
+//    activity.supportFragmentManager
+//        .beginTransaction()
+//        .replace(R.id.content_frame, fragment)
+//        .addToBackStack(null)
+//        .commit()
+//}
 
 fun noEmptyFields(editTexts: ArrayList<EditText>): Boolean {
     try {
