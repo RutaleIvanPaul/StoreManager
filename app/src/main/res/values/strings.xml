@@ -39,8 +39,6 @@
     <string name="get_pdf">Get PDF</string>
 
 
-
-
     <string-array name="spinner_items">
         <item>Photography</item>
         <item>Videography</item>

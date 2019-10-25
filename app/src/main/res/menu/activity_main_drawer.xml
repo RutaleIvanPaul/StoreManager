@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:tools="http://schemas.android.com/tools"
-      tools:showIn="navigation_view">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@id/fragmentSearch"
+        android:icon="@drawable/ic_search_foreground"
+        android:title="@string/menu_search" />
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_search"
-            android:icon="@drawable/ic_search_foreground"
-            android:title="@string/menu_search"/>
+<!--    <item-->
+<!--        android:id="@id/fragmentCheckOut"-->
+<!--        android:icon="@drawable/ic_check_out_foreground"-->
+<!--        android:title="@string/menu_check_out" />-->
 
-        <item
-            android:id="@+id/nav_check_out"
-            android:icon="@drawable/ic_check_out_foreground"
-            android:title="@string/menu_check_out"/>
+    <item
+        android:id="@id/fragmentCheckIn"
+        android:icon="@drawable/ic_check_in_foreground"
+        android:title="@string/menu_check_in" />
 
-        <item
-                android:id="@+id/nav_check_in"
-                android:icon="@drawable/ic_check_in_foreground"
-                android:title="@string/menu_check_in"/>
-
-        <item
-                android:id="@+id/nav_reports"
-                android:icon="@drawable/ic_menu_portfolio"
-                android:title="@string/menu_reports"/>
-    </group>
-
+    <item
+        android:id="@id/fragmentReports"
+        android:icon="@drawable/ic_menu_portfolio"
+        android:title="@string/menu_reports" />
 </menu>

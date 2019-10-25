@@ -161,3 +161,8 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+
+app/app.iml
+.idea/codeStyles
+
