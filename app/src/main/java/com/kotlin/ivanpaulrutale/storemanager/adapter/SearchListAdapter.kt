@@ -10,11 +10,12 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
-import com.kotlin.ivanpaulrutale.storemanager.views.listItemObjects
+import com.kotlin.ivanpaulrutale.storemanager.utils.listItemObjects
 
 class SearchListAdapter : RecyclerView.Adapter<SearchListAdapter.ViewHolder>() {
 
-    var listItems: ArrayList<StoreItem> = listItemObjects
+    var listItems: ArrayList<StoreItem> =
+        listItemObjects
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val v = LayoutInflater.from(p0.context).inflate(R.layout.search_list_item, p0, false)

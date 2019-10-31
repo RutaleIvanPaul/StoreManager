@@ -13,6 +13,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.adapter.SearchListAdapter
 import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
+import com.kotlin.ivanpaulrutale.storemanager.utils.listItemObjects
 
 /**
  * A simple [Fragment] subclass.
