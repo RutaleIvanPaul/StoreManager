@@ -5,7 +5,7 @@
     <fragment
         android:id="@+id/fragmentSearch"
         android:name="com.kotlin.ivanpaulrutale.storemanager.views.FragmentSearch"
-        android:label="FragmentSearch">
+        android:label="Search">
         <action
             android:id="@+id/action_fragmentSearch_to_fragmentCheckOut"
             app:destination="@id/fragmentCheckOut" />
@@ -13,11 +13,11 @@
     <fragment
         android:id="@+id/fragmentCheckIn"
         android:name="com.kotlin.ivanpaulrutale.storemanager.views.FragmentCheckIn"
-        android:label="FragmentCheckIn" />
+        android:label="CheckIn" />
     <fragment
         android:id="@+id/fragmentCheckOut"
         android:name="com.kotlin.ivanpaulrutale.storemanager.views.FragmentCheckOut"
-        android:label="FragmentCheckOut">
+        android:label="Checkout">
         <argument
             android:name="art_number"
             app:argType="string" />
@@ -34,5 +34,5 @@
     <fragment
         android:id="@+id/fragmentReports"
         android:name="com.kotlin.ivanpaulrutale.storemanager.views.FragmentReports"
-        android:label="FragmentReports" />
+        android:label="Reports" />
 </navigation>
