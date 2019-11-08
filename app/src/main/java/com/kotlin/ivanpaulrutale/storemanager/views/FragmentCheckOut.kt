@@ -2,6 +2,7 @@ package com.kotlin.ivanpaulrutale.storemanager.views
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.kotlin.ivanpaulrutale.storemanager.R
+import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
 import com.kotlin.ivanpaulrutale.storemanager.utils.noEmptyFields
+import okhttp3.Response
+import retrofit2.Call
+import retrofit2.Callback
 
 /**
  * A simple [Fragment] subclass.
@@ -47,10 +52,13 @@ class FragmentCheckOut : Fragment() {
                 arrayListOf<EditText>(art_number, color, description, quantity, store, collector)
 
             if (noEmptyFields(editTexts)) {
-                Toast.makeText(context, art_number.text, Toast.LENGTH_LONG).show()
-//                changeFromFragmentToFragment(activity, Search())
+                val map = hashMapOf(
+                    "collector" to collector.text.toString() as Any,
+                    "description" to description.text.toString() as Any,
+                    "quantity" to quantity.text.toString() as Any
+                )
+                checkoutItems(map)
             }
-
         }
         return view
     }
@@ -62,5 +70,28 @@ class FragmentCheckOut : Fragment() {
             description = arguments!!["description"] as String
             store = arguments!!["store"] as String
         }
+    }
+
+    private fun checkoutItems(map: HashMap<String, Any>) {
+        RetrofitClient.instance.checkoutItem(map).enqueue(object : Callback<Response> {
+            override fun onResponse(call: Call<Response>, response: retrofit2.Response<Response>) {
+                when (response.code()) {
+                    200 -> {
+                        Toast.makeText(activity, "Item checked out", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Toast.makeText(
+                            activity,
+                            "Item could not be checked out",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<Response>, t: Throwable) {
+                Log.e("FragmentCheckout: ", t.message)
+            }
+        })
     }
 }

@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp"
+    android:background="@android:color/white"
+    app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,12 +20,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:ellipsize="end"
             android:lines="1"
             android:text="QR code access control - UGX2,000,000"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,71 +37,34 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:ellipsize="end"
-            android:lines="3"
-            android:text="Events management with onsite access control with QR-codes and Bar-codes and back end access of the database"
-            android:textSize="16sp"
+            android:maxLines="3"
+            android:text="Events management with onsite access control "
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/searchlist_art_number"
             app:layout_constraintStart_toStartOf="@+id/searchlist_art_number"
             app:layout_constraintTop_toBottomOf="@+id/searchlist_art_number" />
 
         <TextView
-            android:id="@+id/searchlist_store"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ellipsize="end"
-            android:lines="1"
-            android:text="This is the store"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/searchlist_description"
-            app:layout_constraintStart_toStartOf="@+id/searchlist_description"
-            app:layout_constraintTop_toBottomOf="@+id/searchlist_description" />
-
-        <TextView
-            android:id="@+id/searchlist_color"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawableStart="@drawable/ic_color_black"
-            android:drawablePadding="4dp"
-            android:gravity="center_vertical"
-            android:text="navy blue"
-            app:layout_constraintStart_toStartOf="@+id/searchlist_store"
-            app:layout_constraintTop_toBottomOf="@+id/searchlist_store" />
-
-        <TextView
-            android:id="@+id/searchlist_quantity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:drawableStart="@drawable/ic_quantity_black"
-            android:drawablePadding="4dp"
-            android:gravity="center_vertical"
-            android:text="12"
-            app:layout_constraintStart_toEndOf="@+id/searchlist_color"
-            app:layout_constraintTop_toBottomOf="@+id/searchlist_store" />
-
-        <TextView
             android:id="@+id/searchlist_last_updated"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
-            android:drawableStart="@drawable/ic_time_black"
-            android:drawablePadding="4dp"
+            android:layout_marginBottom="16dp"
             android:gravity="center_vertical"
+            android:textSize="12sp"
             android:text="1:12:00 PM"
-            app:layout_constraintStart_toEndOf="@+id/searchlist_quantity"
-            app:layout_constraintTop_toBottomOf="@+id/searchlist_store" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/searchlist_description" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintTop_toBottomOf="@+id/searchlist_last_updated"
-            tools:layout_editor_absoluteX="0dp" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_time_black"
+            app:layout_constraintBottom_toBottomOf="@+id/searchlist_last_updated"
+            app:layout_constraintStart_toStartOf="@+id/searchlist_description" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

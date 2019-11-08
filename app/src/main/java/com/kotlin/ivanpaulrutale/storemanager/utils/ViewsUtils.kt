@@ -2,10 +2,6 @@ package com.kotlin.ivanpaulrutale.storemanager.utils
 
 
 import android.widget.EditText
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.models.ReportItem
 import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
 
@@ -13,52 +9,30 @@ var from_Report_details = false
 
 val listItemObjects: ArrayList<StoreItem> = arrayListOf(
     StoreItem(
+        1,
         "art_number",
         "color",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "quantity",
+        5,
         "store",
         "last_updated"
     ),
     StoreItem(
+        2,
         "art_number1",
         "color1",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "quantity1",
+        7,
         "store1",
         "last_updated1"
     ),
     StoreItem(
-        "art_number2",
+        3,
         "color2",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
         "quantity2",
-        "store2",
+        12,
         "last_updated2"
-    ),
-    StoreItem(
-        "art_number3",
-        "color3",
-        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "quantity3",
-        "store3",
-        "last_updated3"
-    ),
-    StoreItem(
-        "art_number4",
-        "color4",
-        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "quantity4",
-        "store4",
-        "last_updated4"
-    ),
-    StoreItem(
-        "art_number5",
-        "color5",
-        "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "quantity5",
-        "store5",
-        "last_updated5"
     )
 )
 

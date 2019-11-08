@@ -43,6 +43,11 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_ver"
 
     //material
-    def material_ver = '1.1.0-beta01'
+    def material_ver = '1.2.0-alpha01'
     implementation "com.google.android.material:material:$material_ver"
+
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
 }
