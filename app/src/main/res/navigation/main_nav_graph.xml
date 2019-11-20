@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/fragmentSearch">
     <fragment
         android:id="@+id/fragmentSearch"
@@ -34,5 +35,27 @@
     <fragment
         android:id="@+id/fragmentReports"
         android:name="com.kotlin.ivanpaulrutale.storemanager.views.FragmentReports"
-        android:label="Reports" />
+        android:label="Reports">
+        <action
+            android:id="@+id/action_fragmentReports_to_reportsViewFragment"
+            app:destination="@id/reportsViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportsViewFragment"
+        android:name="com.kotlin.ivanpaulrutale.storemanager.views.ReportsViewFragment"
+        android:label="Report"
+        tools:layout="@layout/fragment_reports_view">
+        <argument
+            android:name="startDate"
+            app:argType="string" />
+        <argument
+            android:name="endDate"
+            app:argType="string" />
+        <argument
+            android:name="searchValue"
+            app:argType="string" />
+        <argument
+            android:name="searchFlag"
+            app:argType="string" />
+    </fragment>
 </navigation>
