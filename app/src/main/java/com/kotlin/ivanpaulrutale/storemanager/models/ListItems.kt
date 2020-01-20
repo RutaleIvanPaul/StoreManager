@@ -11,6 +11,15 @@ class RequestResponse(
     val storeItems: List<StoreItem>
 )
 
+class ReportsResponse(
+    @SerializedName("success")
+    val success: Boolean,
+    @SerializedName("message")
+    val message: String,
+    @SerializedName("checkoutReport")
+    val report: List<ReportItem>
+)
+
 class StoreItem(
     var id: Int = 0,
     var artNumber: String = "",
@@ -23,13 +32,14 @@ class StoreItem(
 )
 
 class ReportItem(
-    val artNumber: String,
-    val color: String,
-    val description: String,
-    val quantity: String,
-    val store: String,
-    val checkoutTime: String,
-    val collector: String
+    val artNumber: String = "",
+    val color: String = "",
+    val description: String = "",
+    val itemQuantity: String = "",
+    val store: String = "",
+    @SerializedName("createdAt")
+    val checkoutTime: String = "",
+    val collector: String = ""
 )
 
 class SummarisedReportItem(
