@@ -10,10 +10,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.google.android.material.textfield.TextInputEditText
 import com.kotlin.ivanpaulrutale.storemanager.R
+import com.kotlin.ivanpaulrutale.storemanager.models.CheckoutResponse
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
+import com.kotlin.ivanpaulrutale.storemanager.utils.Utils
 import com.kotlin.ivanpaulrutale.storemanager.utils.noEmptyFields
+import kotlinx.android.synthetic.main.fragment_check_out.*
 import okhttp3.Response
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,6 +30,7 @@ class FragmentCheckOut : Fragment() {
     private lateinit var color: String
     private lateinit var description: String
     private lateinit var store: String
+    private var itemID: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,27 +45,24 @@ class FragmentCheckOut : Fragment() {
         view.findViewById<TextInputEditText>(R.id.checkout_description).setText(description)
         view.findViewById<TextInputEditText>(R.id.checkout_store).setText(store)
 
-        view.findViewById<Button>(R.id.checkout_button).setOnClickListener {
-            val art_number = view.findViewById<EditText>(R.id.checkout_art_number)
-            val color = view.findViewById<EditText>(R.id.checkout_color)
-            val description = view.findViewById<EditText>(R.id.checkout_description)
-            val quantity = view.findViewById<EditText>(R.id.checkout_quantity)
-            val store = view.findViewById<EditText>(R.id.checkout_store)
-            val collector = view.findViewById<EditText>(R.id.checkout_collector)
+        return view
+    }
 
-            val editTexts =
-                arrayListOf<EditText>(art_number, color, description, quantity, store, collector)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-            if (noEmptyFields(editTexts)) {
+        checkout_button.setOnClickListener {
+            if (Utils.validated(checkout_art_number, checkout_color, checkout_description, checkout_quantity, checkout_store, checkout_collector) && itemID != 0) {
                 val map = hashMapOf(
-                    "collector" to collector.text.toString() as Any,
-                    "description" to description.text.toString() as Any,
-                    "quantity" to quantity.text.toString() as Any
+                    "collector" to checkout_collector.text.toString() as Any,
+                    "description" to checkout_description.text.toString() as Any,
+                    "quantity" to checkout_quantity.text.toString() as Any,
+                    "store" to checkout_store.text.toString() as Any
                 )
-                checkoutItems(map)
+                checkoutItems(it, itemID, map)
             }
         }
-        return view
+
     }
 
     private fun getDataFromBundle() {
@@ -69,15 +71,18 @@ class FragmentCheckOut : Fragment() {
             color = arguments!!["color"] as String
             description = arguments!!["description"] as String
             store = arguments!!["store"] as String
+            itemID = arguments!!["id"] as Int
         }
     }
 
-    private fun checkoutItems(map: HashMap<String, Any>) {
-        RetrofitClient.instance.checkoutItem(map).enqueue(object : Callback<Response> {
-            override fun onResponse(call: Call<Response>, response: retrofit2.Response<Response>) {
+    private fun checkoutItems(view : View, id : Int, map: HashMap<String, Any>) {
+        RetrofitClient.instance.checkoutItem(id, map).enqueue(object : Callback<CheckoutResponse> {
+            override fun onResponse(call: Call<CheckoutResponse>, response: retrofit2.Response<CheckoutResponse>) {
                 when (response.code()) {
                     200 -> {
-                        Toast.makeText(activity, "Item checked out", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Item checked out", Toast.LENGTH_LONG).show()
+                        Navigation.findNavController(view)
+                            .navigate(R.id.fragmentSearch)
                     }
                     else -> {
                         Toast.makeText(
@@ -85,11 +90,12 @@ class FragmentCheckOut : Fragment() {
                             "Item could not be checked out",
                             Toast.LENGTH_SHORT
                         ).show()
+
                     }
                 }
             }
 
-            override fun onFailure(call: Call<Response>, t: Throwable) {
+            override fun onFailure(call: Call<CheckoutResponse>, t: Throwable) {
                 Log.e("FragmentCheckout: ", t.message)
             }
         })

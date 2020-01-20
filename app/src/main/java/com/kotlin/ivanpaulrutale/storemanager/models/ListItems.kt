@@ -1,5 +1,6 @@
 package com.kotlin.ivanpaulrutale.storemanager.models
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class RequestResponse(
@@ -18,6 +19,36 @@ class ReportsResponse(
     val message: String,
     @SerializedName("checkoutReport")
     val report: List<ReportItem>
+)
+
+class CheckoutResponse(
+    @SerializedName("success")
+    val success: Boolean,
+    @SerializedName("message")
+    val message: String,
+    @SerializedName("foundItems")
+    val storeItems: CheckoutItemResponse
+)
+
+class CheckoutItemResponse(
+    @SerializedName("id")
+    @Expose
+    var id: Int = 0,
+    @SerializedName("collector")
+    @Expose
+    var collector: String = "",
+    @SerializedName("quantity")
+    @Expose
+    var quantity: Int = 0,
+    @SerializedName("itemId")
+    @Expose
+    var itemID: Int = 0,
+    @SerializedName("createdAt")
+    @Expose
+    var createdAt: String = "",
+    @SerializedName("updatedAt")
+    @Expose
+    var updatedAt: String = ""
 )
 
 class StoreItem(

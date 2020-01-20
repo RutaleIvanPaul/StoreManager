@@ -1,6 +1,7 @@
 package com.kotlin.ivanpaulrutale.storemanager.adapter
 
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,7 +53,8 @@ class SearchListAdapter(var mCallback : ListListener, var items : MutableList<St
                 "art_number" to item.artNumber,
                 "color" to item.color,
                 "description" to item.description,
-                "store" to item.store
+                "store" to item.store,
+                "id" to item.id
             )
             Navigation.findNavController(view)
                 .navigate(R.id.action_fragmentSearch_to_fragmentCheckOut, bundle)
