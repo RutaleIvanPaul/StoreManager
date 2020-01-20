@@ -230,8 +230,6 @@ class FragmentSearch : Fragment(), SearchView.OnQueryTextListener {
                             Toast.makeText(activity, "Item not found", Toast.LENGTH_SHORT).show()
                         }
                     }
-
-                    Log.i("Search", response.toString())
                 }
 
                 override fun onFailure(call: Call<RequestResponse>, t: Throwable) {

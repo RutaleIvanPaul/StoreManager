@@ -30,6 +30,7 @@
                 android:backgroundTint="@color/colorAccent"
                 android:drawableStart="@drawable/ic_number_black"
                 android:drawablePadding="8dp"
+                android:focusable="false"
                 android:hint="@string/art_number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -48,6 +49,7 @@
                 android:id="@+id/checkout_color"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:focusable="false"
                 android:backgroundTint="@color/colorAccent"
                 android:drawableStart="@drawable/ic_color_black"
                 android:drawablePadding="8dp"
@@ -69,6 +71,7 @@
                 android:id="@+id/checkout_description"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:focusable="false"
                 android:backgroundTint="@color/colorAccent"
                 android:drawableStart="@drawable/ic_description_black"
                 android:drawablePadding="8dp"
@@ -111,6 +114,7 @@
                 android:id="@+id/checkout_quantity"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:inputType="number"
                 android:backgroundTint="@color/colorAccent"
                 android:drawableStart="@drawable/ic_quantity_black"
                 android:drawablePadding="8dp"
