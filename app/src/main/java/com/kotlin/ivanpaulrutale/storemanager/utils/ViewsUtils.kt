@@ -3,12 +3,13 @@ package com.kotlin.ivanpaulrutale.storemanager.utils
 
 import android.widget.EditText
 import com.kotlin.ivanpaulrutale.storemanager.models.ReportItem
-import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
+import com.kotlin.ivanpaulrutale.storemanager.models.Store
 
 var from_Report_details = false
 
-val listItemObjects: ArrayList<StoreItem> = arrayListOf(
-    StoreItem(
+val listItemObjects: ArrayList<Store> = arrayListOf(
+    Store(
+        1,
         1,
         "art_number",
         "color",
@@ -17,7 +18,8 @@ val listItemObjects: ArrayList<StoreItem> = arrayListOf(
         "store",
         "last_updated"
     ),
-    StoreItem(
+    Store(
+        2,
         2,
         "art_number1",
         "color1",
@@ -26,7 +28,8 @@ val listItemObjects: ArrayList<StoreItem> = arrayListOf(
         "store1",
         "last_updated1"
     ),
-    StoreItem(
+    Store(
+        3,
         3,
         "color2",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
