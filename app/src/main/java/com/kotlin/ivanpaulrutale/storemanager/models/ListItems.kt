@@ -8,7 +8,7 @@ class RequestResponse(
     @SerializedName("message")
     val message: String,
     @SerializedName("foundItems")
-    val storeItems: List<StoreItem>
+    val storeItems: List<Store>
 )
 
 class ReportsResponse(

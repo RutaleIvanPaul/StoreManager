@@ -4,20 +4,22 @@ package com.kotlin.ivanpaulrutale.storemanager.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.kotlin.ivanpaulrutale.storemanager.Constants
 import com.kotlin.ivanpaulrutale.storemanager.R
-import com.kotlin.ivanpaulrutale.storemanager.models.StoreItem
+import com.kotlin.ivanpaulrutale.storemanager.models.Store
+import java.util.ArrayList
 
-class SearchListAdapter : RecyclerView.Adapter<SearchListAdapter.ViewHolder>() {
+class SearchListAdapter(var mCallback : ListListener, var items : MutableList<Store>) : RecyclerView.Adapter<SearchListAdapter.ViewHolder>(), Filterable {
 
-    private var listItems: MutableList<StoreItem>
-
-    init {
-        listItems = mutableListOf()
-    }
+    private var listItems: MutableList<Store> = items
+    private var filteredListItems: MutableList<Store> = items
+    private var searchFlag = Constants.defaultFlag
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val v = LayoutInflater.from(p0.context).inflate(R.layout.search_list_item, p0, false)
@@ -25,17 +27,19 @@ class SearchListAdapter : RecyclerView.Adapter<SearchListAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return listItems.size
+        return filteredListItems.size
     }
 
-    fun updateList(newList: MutableList<StoreItem>) {
-        listItems.clear()
-        listItems = newList
-        notifyDataSetChanged()
+    fun setSearchFlag(value : String) {
+        searchFlag = value
+    }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = listItems[position]
+        val item = filteredListItems[position]
         holder.art_numberTextView.text = item.artNumber
 //        holder.colorTextView.text = item.color
         holder.descriptionTextView.text = item.description
@@ -64,4 +68,58 @@ class SearchListAdapter : RecyclerView.Adapter<SearchListAdapter.ViewHolder>() {
         val lastUpdatedTextView = itemView.findViewById(R.id.searchlist_last_updated) as TextView
     }
 
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val filterResults = FilterResults()
+                if (constraint == null || constraint.isEmpty()) {
+                    filterResults.count = listItems.size
+                    filterResults.values = listItems
+                } else {
+
+                    val search = constraint.toString().toLowerCase()
+                    val dataResults = ArrayList<Store>()
+
+                    for (store in listItems) {
+
+                        when(searchFlag) {
+                            Constants.artFlag -> {
+                                if (store.artNumber.toLowerCase().contains(search)) dataResults.add(store)
+                            }
+                            Constants.colorFlag -> {
+                                if (store.color.toLowerCase().contains(search)) dataResults.add(store)
+                            }
+                            Constants.descriptionFlag -> {
+                                if (store.description.toLowerCase().contains(search)) dataResults.add(store)
+                            }
+                            else -> {
+                                if (store.artNumber.toLowerCase().contains(search) || store.color.toLowerCase().contains(search) || store.description.toLowerCase().contains(search))
+                                    dataResults.add(store)
+                            }
+                        }
+
+
+                        filterResults.count = dataResults.size
+                        filterResults.values = dataResults
+                    }
+                }
+                return filterResults
+            }
+
+            override fun publishResults(constraint: CharSequence, results: FilterResults) {
+                filteredListItems = results.values as MutableList<Store>
+                notifyDataSetChanged()
+
+                if (filteredListItems.isEmpty())
+                    mCallback.showEmpty()
+                else
+                    mCallback.hideEmpty()
+            }
+        }
+    }
+
+    interface ListListener {
+        fun showEmpty()
+        fun hideEmpty()
+    }
 }
