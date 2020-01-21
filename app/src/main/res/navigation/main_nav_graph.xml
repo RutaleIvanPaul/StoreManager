@@ -54,11 +54,26 @@
         <argument
             android:name="endDate"
             app:argType="string" />
+
         <argument
-            android:name="searchValue"
+            android:name="store"
             app:argType="string" />
+
         <argument
-            android:name="searchFlag"
+            android:name="description"
             app:argType="string" />
+
+        <argument
+            android:name="color"
+            app:argType="string" />
+
+        <argument
+            android:name="artNumber"
+            app:argType="string" />
+
+        <argument
+            android:name="collector"
+            app:argType="string" />
+
     </fragment>
 </navigation>

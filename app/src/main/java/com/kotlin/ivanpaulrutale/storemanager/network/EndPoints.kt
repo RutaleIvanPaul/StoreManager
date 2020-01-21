@@ -24,7 +24,9 @@ interface EndPoints {
         @Query("endDate") endDate: String? = null,
         @Query("artNumber") artNumber: String? = null,
         @Query("color") color: String? = null,
-        @Query("description") description: String? = null
+        @Query("description") description: String? = null,
+        @Query("store") store: String? = null,
+        @Query("collector") collector: String? = null
     ): Call<ReportsResponse>
 
     @POST("items")

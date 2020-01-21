@@ -31,6 +31,7 @@ class FragmentCheckOut : Fragment() {
     private lateinit var description: String
     private lateinit var store: String
     private var itemID: Int = 0
+    private var quantityValue: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,13 +54,17 @@ class FragmentCheckOut : Fragment() {
 
         checkout_button.setOnClickListener {
             if (Utils.validated(checkout_art_number, checkout_color, checkout_description, checkout_quantity, checkout_store, checkout_collector) && itemID != 0) {
-                val map = hashMapOf(
-                    "collector" to checkout_collector.text.toString() as Any,
-                    "description" to checkout_description.text.toString() as Any,
-                    "quantity" to checkout_quantity.text.toString() as Any,
-                    "store" to checkout_store.text.toString() as Any
-                )
-                checkoutItems(it, itemID, map)
+                if (checkout_quantity.text.toString().toInt() > quantityValue) {
+                    Toast.makeText(activity?.applicationContext, "You can not checkout more than $quantityValue items.", Toast.LENGTH_LONG).show()
+                } else {
+                    val map = hashMapOf(
+                        "collector" to checkout_collector.text.toString() as Any,
+                        "description" to checkout_description.text.toString() as Any,
+                        "quantity" to checkout_quantity.text.toString() as Any,
+                        "store" to checkout_store.text.toString() as Any
+                    )
+                    checkoutItems(it, itemID, map)
+                }
             }
         }
 
@@ -72,6 +77,7 @@ class FragmentCheckOut : Fragment() {
             description = arguments!!["description"] as String
             store = arguments!!["store"] as String
             itemID = arguments!!["id"] as Int
+            quantityValue = arguments!!["quantity"] as Int
         }
     }
 

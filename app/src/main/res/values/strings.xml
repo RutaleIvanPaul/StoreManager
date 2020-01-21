@@ -9,12 +9,15 @@
     <string name="menu_reports">Reports</string>
 
 
-    <string name="art_number">art. number</string>
-    <string name="color">color</string>
-    <string name="description">description</string>
-    <string name="quantity">quantity</string>
-    <string name="store">store</string>
-    <string name="collector">collector</string>
+    <string name="art_number">Art. number</string>
+    <string name="color">Color</string>
+    <string name="description">Description</string>
+    <string name="quantity">Quantity</string>
+    <string name="store">Store</string>
+    <string name="collector">Collector</string>
+
+    <string name="end_date">End Date</string>
+    <string name="start_date">Start Date</string>
 
     <string name="search_item">Search for an Item</string>
 
@@ -27,4 +30,10 @@
     <!-- TODO: Remove or change this placeholder text -->
 
     <string name="no_items">No Items</string>
+    <string name="get_report">Get Report</string>
+
+    <string name="day_space_month_space_year">%s-%s-%s</string>
+    <string name="enter_file_name">Enter Filename</string>
+    <string name="continue_message">Continue</string>
+    <string name="enter_file_name_to_continue">Enter Filename to save the report.</string>
 </resources>

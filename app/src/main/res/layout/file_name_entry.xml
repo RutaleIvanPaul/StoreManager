@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:paddingTop="48dp"
+    android:paddingBottom="48dp"
+    android:focusableInTouchMode="true"
+    android:background="@android:color/white"
+    tools:context=".views.FragmentReports">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/file_name_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/file_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/enter_file_name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/continue_message"
+        app:layout_constraintEnd_toEndOf="@+id/file_name_layout"
+        app:layout_constraintTop_toBottomOf="@+id/file_name_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
