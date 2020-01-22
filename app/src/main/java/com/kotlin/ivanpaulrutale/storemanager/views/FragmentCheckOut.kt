@@ -6,19 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.google.android.material.textfield.TextInputEditText
 import com.kotlin.ivanpaulrutale.storemanager.R
-import com.kotlin.ivanpaulrutale.storemanager.models.CheckoutResponse
+import com.kotlin.ivanpaulrutale.storemanager.models.GenericResponse
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
 import com.kotlin.ivanpaulrutale.storemanager.utils.Utils
-import com.kotlin.ivanpaulrutale.storemanager.utils.noEmptyFields
 import kotlinx.android.synthetic.main.fragment_check_out.*
-import okhttp3.Response
 import retrofit2.Call
 import retrofit2.Callback
 
@@ -82,8 +78,8 @@ class FragmentCheckOut : Fragment() {
     }
 
     private fun checkoutItems(view : View, id : Int, map: HashMap<String, Any>) {
-        RetrofitClient.instance.checkoutItem(id, map).enqueue(object : Callback<CheckoutResponse> {
-            override fun onResponse(call: Call<CheckoutResponse>, response: retrofit2.Response<CheckoutResponse>) {
+        RetrofitClient.instance.checkoutItem(id, map).enqueue(object : Callback<GenericResponse> {
+            override fun onResponse(call: Call<GenericResponse>, response: retrofit2.Response<GenericResponse>) {
                 when (response.code()) {
                     200 -> {
                         Toast.makeText(activity, "Item checked out", Toast.LENGTH_LONG).show()
@@ -101,7 +97,7 @@ class FragmentCheckOut : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<CheckoutResponse>, t: Throwable) {
+            override fun onFailure(call: Call<GenericResponse>, t: Throwable) {
                 Log.e("FragmentCheckout: ", t.message)
             }
         })
