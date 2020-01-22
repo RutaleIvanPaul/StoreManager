@@ -1,112 +1,92 @@
 package com.kotlin.ivanpaulrutale.storemanager.views
 
 
-import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AutoCompleteTextView
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.google.android.material.chip.ChipGroup
+import com.google.android.material.textfield.TextInputEditText
+import com.kotlin.ivanpaulrutale.storemanager.Constants
 import com.kotlin.ivanpaulrutale.storemanager.R
+import com.kotlin.ivanpaulrutale.storemanager.utils.Utils
+import kotlinx.android.synthetic.main.fragment_reports.*
 import java.util.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class FragmentReports : Fragment() {
+class FragmentReports : Fragment(), com.wdullaer.materialdatetimepicker.date.DatePickerDialog.OnDateSetListener {
 
-    private lateinit var startDateTxt: AutoCompleteTextView
-    private lateinit var endDateTxt: AutoCompleteTextView
-    private lateinit var searchValueEdt: EditText
-    private lateinit var reportsButton: Button
-    private lateinit var reportsChipGroup: ChipGroup
+    private var now = Calendar.getInstance()
+    private var calendar = Calendar.getInstance()
+    private lateinit var dateView : TextInputEditText
 
-    var searchFlag = ""
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_reports, container, false)
+    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_reports, container, false)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initializeViews(view)
-        return view
     }
 
     private fun initializeViews(fragView: View) {
-        startDateTxt = fragView.findViewById(R.id.reports_startdate_txt)
-        endDateTxt = fragView.findViewById(R.id.reports_enddate_txt)
-        searchValueEdt = fragView.findViewById(R.id.reports_search_edt)
-
-        startDateTxt.setOnClickListener {
-            setDate(startDateTxt)
-        }
-        endDateTxt.setOnClickListener {
-            setDate(endDateTxt)
+        reports_startdate_txt.setOnClickListener {
+            dateView = reports_startdate_txt
+            setDate()
         }
 
-        reportsButton = fragView.findViewById(R.id.get_report_button)
-        reportsButton.setOnClickListener {
-            if (startDateTxt.text.toString().isEmpty() || startDateTxt.text.toString().isBlank()) {
-                startDateTxt.error = "please provide a start date"
-            } else if (endDateTxt.text.toString().isEmpty() || endDateTxt.text.toString().isBlank()) {
-                endDateTxt.error = "please provide an end date"
-            } else if (searchValueEdt.text.toString().isEmpty() || searchValueEdt.text.toString().isBlank()) {
-                searchValueEdt.error = "please provide a search value"
-            } else if (searchFlag.isBlank() || searchFlag.isEmpty()) {
-                Toast.makeText(context, "please select a search flag", Toast.LENGTH_SHORT).show()
+        reports_enddate_txt.setOnClickListener {
+            dateView = reports_enddate_txt
+            setDate()
+        }
+
+        get_report_button.setOnClickListener {
+            if (reports_startdate_txt.text.toString().isEmpty() || reports_startdate_txt.text.toString().isBlank()) {
+                reports_startdate_txt.error = "please provide a start date"
+            } else if (reports_enddate_txt.text.toString().isEmpty() || reports_enddate_txt.text.toString().isBlank()) {
+                reports_enddate_txt.error = "please provide an end date"
             } else {
                 val bundle = bundleOf(
-                    "startDate" to startDateTxt.text.toString(),
-                    "endDate" to endDateTxt.text.toString(),
-                    "searchValue" to searchValueEdt.text.toString(),
-                    "searchFlag" to searchFlag
-
+                    "startDate" to reports_startdate_txt.text.toString(),
+                    "endDate" to reports_enddate_txt.text.toString(),
+                    "store" to store.text.toString(),
+                    "color" to color.text.toString(),
+                    "artNumber" to art_number.text.toString(),
+                    "collector" to collector.text.toString(),
+                    "description" to description.text.toString()
                 )
+
                 Navigation.findNavController(fragView)
                     .navigate(R.id.action_fragmentReports_to_reportsViewFragment, bundle)
             }
         }
-
-        reportsChipGroup = fragView.findViewById(R.id.reports_chip_group)
-        reportsChipGroup.setOnCheckedChangeListener { group, checkedId ->
-            when (checkedId) {
-                R.id.reports_art_number_chip -> {
-                    searchFlag = "artNumber"
-                }
-                R.id.reports_color_chip -> {
-                    searchFlag = "color"
-                }
-                R.id.reports_description_chip -> {
-                    searchFlag = "description"
-                }
-            }
-        }
     }
 
-    private fun setDate(textView: AutoCompleteTextView) {
-        val cal = Calendar.getInstance()
-        val calYear = cal.get(Calendar.YEAR)
-        val calMonth = cal.get(Calendar.MONTH)
-        val calDay = cal.get(Calendar.DAY_OF_MONTH)
-        val datePicker = DatePickerDialog(
-            context!!,
-            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                val date = "$year-${month + 1}-$dayOfMonth"
-                textView.setText(date)
-            },
-            calYear,
-            calMonth,
-            calDay
+    override fun onDateSet(view: com.wdullaer.materialdatetimepicker.date.DatePickerDialog?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
+        now.set(Calendar.YEAR, year)
+        now.set(Calendar.MONTH, monthOfYear)
+        now.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+        val selection = Utils.getDate(activity!!.applicationContext, now.time)
+        view?.dismiss()
+        dateView.text = Editable.Factory.getInstance().newEditable(selection)
+    }
+
+    private fun setDate() {
+        val datePicker = com.wdullaer.materialdatetimepicker.date.DatePickerDialog.newInstance(
+            this@FragmentReports,
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
         )
-        datePicker.show()
+        datePicker.version = com.wdullaer.materialdatetimepicker.date.DatePickerDialog.Version.VERSION_2
+        datePicker.vibrate(true)
+        datePicker.setOkColor(Constants.WHITE)
+        datePicker.setCancelColor(Constants.WHITE)
+        datePicker.show(childFragmentManager, "datePicker")
     }
 }

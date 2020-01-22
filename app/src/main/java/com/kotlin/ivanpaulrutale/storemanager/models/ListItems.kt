@@ -12,6 +12,15 @@ class RequestResponse(
     val storeItems: List<Store>
 )
 
+class StoreResponse(
+    @SerializedName("success")
+    val success: Boolean,
+    @SerializedName("message")
+    val message: String,
+    @SerializedName("stores")
+    val storeItems: List<Stores>
+)
+
 class ReportsResponse(
     @SerializedName("success")
     val success: Boolean,
@@ -21,16 +30,16 @@ class ReportsResponse(
     val report: List<ReportItem>
 )
 
-class CheckoutResponse(
+class GenericResponse(
     @SerializedName("success")
     val success: Boolean,
     @SerializedName("message")
     val message: String,
     @SerializedName("foundItems")
-    val storeItems: CheckoutItemResponse
+    val storeItems: ItemResponse
 )
 
-class CheckoutItemResponse(
+class ItemResponse(
     @SerializedName("id")
     @Expose
     var id: Int = 0,
@@ -51,7 +60,7 @@ class CheckoutItemResponse(
     var updatedAt: String = ""
 )
 
-class StoreItem(
+class StoreItems(
     var id: Int = 0,
     var artNumber: String = "",
     var color: String = "",

@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:background="@android:color/white"
     tools:context=".views.FragmentReports">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout12"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:id="@+id/start_date_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -19,95 +21,137 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <AutoCompleteTextView
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/reports_startdate_txt"
+            android:focusable="false"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="start date" />
+            android:hint="@string/start_date" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout13"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:id="@+id/end_date_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout12"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout12"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout12">
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_date_layout">
 
-        <AutoCompleteTextView
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/reports_enddate_txt"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="end date" />
+            android:focusable="false"
+            android:hint="@string/end_date" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout14"
+        android:id="@+id/art_number_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout13"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout13"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout13">
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/end_date_layout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/reports_search_edt"
+            android:id="@+id/art_number"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="artNumber, color, description" />
+            android:hint="@string/art_number" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <HorizontalScrollView
-        android:id="@+id/reportsHorizontalScrollView"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/color_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout14"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout14"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout14">
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/art_number_layout">
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/reports_chip_group"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:singleSelection="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/color"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/color" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/reports_art_number_chip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="Art Number" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/description_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/color_layout">
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/reports_color_chip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="Color" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/description" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/reports_description_chip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="Description" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/store_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description_layout">
 
-        </com.google.android.material.chip.ChipGroup>
-    </HorizontalScrollView>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/store"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/store" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/collector_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/store_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/collector"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/collector" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/get_report_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Get Report"
-        app:layout_constraintEnd_toEndOf="@+id/reportsHorizontalScrollView"
-        app:layout_constraintTop_toBottomOf="@+id/reportsHorizontalScrollView" />
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/get_report"
+        app:layout_constraintEnd_toEndOf="@+id/collector_layout"
+        app:layout_constraintTop_toBottomOf="@+id/collector_layout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

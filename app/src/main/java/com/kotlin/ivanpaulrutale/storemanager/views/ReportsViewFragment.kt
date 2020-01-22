@@ -2,6 +2,7 @@ package com.kotlin.ivanpaulrutale.storemanager.views
 
 
 import android.Manifest
+import android.app.Activity
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -17,8 +18,7 @@ import com.kotlin.ivanpaulrutale.storemanager.adapter.ReportListAdapter
 import com.kotlin.ivanpaulrutale.storemanager.models.ReportItem
 import com.kotlin.ivanpaulrutale.storemanager.models.ReportsResponse
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
-import com.kotlin.ivanpaulrutale.storemanager.utils.PdfManager
-import com.kotlin.ivanpaulrutale.storemanager.utils.reportlistItemObjects
+import com.kotlin.ivanpaulrutale.storemanager.utils.PDFManagerUtil
 import kotlinx.android.synthetic.main.fragment_reports_view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,8 +31,11 @@ class ReportsViewFragment : Fragment() {
 
     var startDate = ""
     var endDate = ""
-    var searchValue = ""
-    var searchFlag = ""
+    var colorFlag = ""
+    var descriptionFlag = ""
+    var artNumberFlag = ""
+    var storeFlag = ""
+    var collectorFlag = ""
     val TAG = "ReportsViewFragment: "
 
     private var itemList = mutableListOf<ReportItem>()
@@ -56,13 +59,14 @@ class ReportsViewFragment : Fragment() {
         if (arguments != null) {
             startDate = arguments!!["startDate"] as String
             endDate = arguments!!["endDate"] as String
-            searchValue = arguments!!["searchValue"] as String
-            searchFlag = arguments!!["searchFlag"] as String
-        }
-        when (searchFlag) {
-            "artNumber" -> fetchReport(startDate, endDate, artNumber = searchValue)
-            "color" -> fetchReport(startDate, endDate, color = searchValue)
-            "description" -> fetchReport(startDate, endDate, description = searchValue)
+
+            colorFlag = arguments!!["color"] as String
+            descriptionFlag = arguments!!["description"] as String
+            artNumberFlag = arguments!!["artNumber"] as String
+            storeFlag = arguments!!["store"] as String
+            collectorFlag = arguments!!["collector"] as String
+
+            fetchReport(startDate, endDate, artNumber = artNumberFlag, color = colorFlag, description = descriptionFlag, store = storeFlag, collector = collectorFlag)
         }
     }
 
@@ -99,7 +103,11 @@ class ReportsViewFragment : Fragment() {
     }
 
     private fun generatePdf(reports: Fragment) {
-        PdfManager.createPdf(reports.activity, reportlistItemObjects, "pdf1")
+        ReportFileBottomSheet.newInstance(object : FileNameListener {
+            override fun fileName(value: String) {
+                PDFManagerUtil.createPdf(reports.activity as Activity, itemList, value)
+            }
+        }).show(childFragmentManager, "generate_pdf")
     }
 
     override fun onRequestPermissionsResult(
@@ -121,10 +129,12 @@ class ReportsViewFragment : Fragment() {
         endDate: String = "",
         artNumber: String = "",
         color: String = "",
-        description: String = ""
+        description: String = "",
+        store: String = "",
+        collector: String = ""
     ) {
         reportsProgressbar.visibility = View.VISIBLE
-        RetrofitClient.instance.searchReports(startDate, endDate, artNumber, color, description)
+        RetrofitClient.instance.searchReports(startDate, endDate, artNumber, color, description, store, collector)
             .enqueue(object :
                 Callback<ReportsResponse> {
                 override fun onResponse(
@@ -153,14 +163,10 @@ class ReportsViewFragment : Fragment() {
                             }
                         }
                         400 -> {
-                            reportsProgressbar.visibility = View.GONE
-                            reportsLabel.visibility = View.VISIBLE
-                            Toast.makeText(activity, "Items not found", Toast.LENGTH_SHORT).show()
+                            reportNotFound()
                         }
                         404 -> {
-                            reportsProgressbar.visibility = View.GONE
-                            reportsLabel.visibility = View.VISIBLE
-                            Toast.makeText(activity, "Items not found", Toast.LENGTH_SHORT).show()
+                            reportNotFound()
                         }
                     }
                 }
@@ -170,5 +176,15 @@ class ReportsViewFragment : Fragment() {
                     Log.e(TAG, t.message)
                 }
             })
+    }
+
+    private fun reportNotFound() {
+        reportsProgressbar.visibility = View.GONE
+        reportsLabel.visibility = View.VISIBLE
+        Toast.makeText(activity, "Items not found", Toast.LENGTH_LONG).show()
+    }
+
+    interface FileNameListener {
+        fun fileName(value : String)
     }
 }

@@ -8,5 +8,6 @@ class Constants {
         const val colorFlag = "color"
         const val descriptionFlag = "description"
         const val defaultFlag = "all"
+        const val WHITE = "#FFFFFF"
     }
 }

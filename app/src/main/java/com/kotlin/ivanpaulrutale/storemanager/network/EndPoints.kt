@@ -1,8 +1,9 @@
 package com.kotlin.ivanpaulrutale.storemanager.network
 
-import com.kotlin.ivanpaulrutale.storemanager.models.CheckoutResponse
+import com.kotlin.ivanpaulrutale.storemanager.models.GenericResponse
 import com.kotlin.ivanpaulrutale.storemanager.models.ReportsResponse
 import com.kotlin.ivanpaulrutale.storemanager.models.RequestResponse
+import com.kotlin.ivanpaulrutale.storemanager.models.StoreResponse
 import okhttp3.Response
 import retrofit2.Call
 import retrofit2.http.*
@@ -24,15 +25,20 @@ interface EndPoints {
         @Query("endDate") endDate: String? = null,
         @Query("artNumber") artNumber: String? = null,
         @Query("color") color: String? = null,
-        @Query("description") description: String? = null
+        @Query("description") description: String? = null,
+        @Query("store") store: String? = null,
+        @Query("collector") collector: String? = null
     ): Call<ReportsResponse>
 
     @POST("items")
-    fun checkinItem(@Body body: HashMap<String, Any>): Call<Response>
+    fun checkInItem(@Body body: HashMap<String, Any>): Call<GenericResponse>
 
     @POST("{id}/checkout")
-    fun checkoutItem(@Path("id") id : Int, @Body body: HashMap<String, Any>): Call<CheckoutResponse>
+    fun checkoutItem(@Path("id") id : Int, @Body body: HashMap<String, Any>): Call<GenericResponse>
 
     @PUT("items")
     fun editItem(@Body body: HashMap<String, Any>): Call<Response>
+
+    @GET("stores")
+    fun getStores(): Call<StoreResponse>
 }

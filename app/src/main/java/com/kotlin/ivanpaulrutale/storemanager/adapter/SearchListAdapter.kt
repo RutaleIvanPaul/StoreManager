@@ -54,7 +54,8 @@ class SearchListAdapter(var mCallback : ListListener, var items : MutableList<St
                 "color" to item.color,
                 "description" to item.description,
                 "store" to item.store,
-                "id" to item.id
+                "id" to item.id,
+                "quantity" to item.quantity
             )
             Navigation.findNavController(view)
                 .navigate(R.id.action_fragmentSearch_to_fragmentCheckOut, bundle)
