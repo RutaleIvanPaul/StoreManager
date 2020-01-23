@@ -14,13 +14,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.kotlin.ivanpaulrutale.storemanager.Constants
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.adapter.SearchListAdapter
+import com.kotlin.ivanpaulrutale.storemanager.models.GenericResponse
 import com.kotlin.ivanpaulrutale.storemanager.models.RequestResponse
 import com.kotlin.ivanpaulrutale.storemanager.models.Store
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
+import com.kotlin.ivanpaulrutale.storemanager.utils.EditListener
 import kotlinx.android.synthetic.main.fragment_search.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,10 +31,6 @@ import retrofit2.Response
  * A simple [Fragment] subclass.
  */
 class FragmentSearch : Fragment(), SearchView.OnQueryTextListener {
-    private val ART_NUMBER = "artNumber"
-    private val COLOR = "color"
-    private val DESCRIPTION = "description"
-    private var searchFlag = ART_NUMBER
 
     private lateinit var recyclerViewAdapter: SearchListAdapter
     private var itemList: MutableList<Store> = mutableListOf()
@@ -48,20 +45,6 @@ class FragmentSearch : Fragment(), SearchView.OnQueryTextListener {
     override fun onQueryTextChange(newText: String?): Boolean {
         recyclerViewAdapter.filter.filter(newText!!)
         return true
-    }
-
-    private fun triggerSearch(newText: String) {
-        when (searchFlag) {
-            ART_NUMBER -> {
-                searchItems(artNumber = newText)
-            }
-            COLOR -> {
-                searchItems(color = newText)
-            }
-            DESCRIPTION -> {
-                searchItems(description = newText)
-            }
-        }
     }
 
     override fun onCreateView(
@@ -80,16 +63,11 @@ class FragmentSearch : Fragment(), SearchView.OnQueryTextListener {
     }
 
     private fun initializeViews(view: View) {
-        // initialize searchview
         val searchView = view.findViewById<SearchView>(R.id.searchView)
-        //searchView?.requestFocus()
         searchView?.setOnQueryTextListener(this)
 
-        // initialize swipe refresh
-        val swipeRefresh = view.findViewById<SwipeRefreshLayout>(R.id.swipe_refresh)
-        swipeRefresh?.setOnRefreshListener {
+        swipe_refresh.setOnRefreshListener {
             fetchItems()
-            swipeRefresh.isRefreshing = false
         }
 
         search_chip_group.setOnCheckedChangeListener { group, checkedId ->
@@ -118,6 +96,10 @@ class FragmentSearch : Fragment(), SearchView.OnQueryTextListener {
 
     private fun initializeRecyclerView(view: View) {
         recyclerViewAdapter = SearchListAdapter(object : SearchListAdapter.ListListener {
+            override fun editStoreItem(item: Store) {
+                showStoreItemEdition(item, view)
+            }
+
             override fun showEmpty() {
                 showEmptyItems()
             }
@@ -132,6 +114,15 @@ class FragmentSearch : Fragment(), SearchView.OnQueryTextListener {
         val linearLayoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = recyclerViewAdapter
+    }
+
+    private fun showStoreItemEdition(item : Store, view : View) {
+        CheckInEditBottomSheet.newInstance(item, object : EditListener {
+            override fun editCheckIn(id: Int, map: HashMap<String, Any>) {
+                checkInItems(view, id, map)
+            }
+
+        }).show(childFragmentManager, "edit_check_in_item")
     }
 
     private fun fetchDbStoredItems() {
@@ -170,6 +161,8 @@ class FragmentSearch : Fragment(), SearchView.OnQueryTextListener {
             ) {
                 when (response.code()) {
                     200 -> {
+                        if (swipe_refresh != null)
+                            swipe_refresh.isRefreshing = false
                         search_progressBar.visibility = View.GONE
                         no_items.visibility = View.GONE
                         insertStoreItems(response.body()!!.storeItems as MutableList<Store>)
@@ -207,34 +200,29 @@ class FragmentSearch : Fragment(), SearchView.OnQueryTextListener {
         })
     }
 
-    private fun searchItems(artNumber: String = "", color: String = "", description: String = "") {
-        if (itemList.isNotEmpty())
-            itemList.clear()
-        search_progressBar.visibility = View.VISIBLE
-        RetrofitClient.instance.searchItems(artNumber, color, description)
-            .enqueue(object : Callback<RequestResponse> {
-                override fun onResponse(
-                    call: Call<RequestResponse>,
-                    response: Response<RequestResponse>
-                ) {
-                    when (response.code()) {
-                        200 -> {
-                            search_progressBar.visibility = View.GONE
-                            itemList.addAll(response.body()!!.storeItems as MutableList<Store>)
-                            recyclerViewAdapter.notifyDataSetChanged()
+    private fun checkInItems(view : View, id : Int, map: HashMap<String, Any>) {
+        RetrofitClient.instance.editItemCheckIn(id, map).enqueue(object : Callback<GenericResponse> {
+            override fun onResponse(call: Call<GenericResponse>, response: Response<GenericResponse>) {
+                when (response.code()) {
+                    200 -> {
+                        activity?.applicationContext?.let {
+                            Toast.makeText(it, it.getString(R.string.edited_successfully), Toast.LENGTH_LONG).show()
                         }
-                        400 -> {
-                            Toast.makeText(activity, "Item not found", Toast.LENGTH_SHORT).show()
-                        }
-                        404 -> {
-                            Toast.makeText(activity, "Item not found", Toast.LENGTH_SHORT).show()
+
+                        swipe_refresh.isRefreshing = true
+                        fetchItems()
+                    }
+                    else -> {
+                        activity?.applicationContext?.let {
+                            Toast.makeText(it, "Item could not be edited.", Toast.LENGTH_LONG).show()
                         }
                     }
                 }
+            }
 
-                override fun onFailure(call: Call<RequestResponse>, t: Throwable) {
-                    Log.e("FragmentSearch: ", t.message)
-                }
-            })
+            override fun onFailure(call: Call<GenericResponse>, t: Throwable) {
+                Log.e("CheckInEditBottomSheet", t.message)
+            }
+        })
     }
 }

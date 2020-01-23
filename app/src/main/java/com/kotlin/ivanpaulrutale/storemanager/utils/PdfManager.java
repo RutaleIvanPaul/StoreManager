@@ -193,7 +193,7 @@ public class PdfManager {
             table.addCell(item.getArtNumber());
             table.addCell(item.getColor());
             table.addCell(item.getDescription());
-            table.addCell(item.getItemQuantity());
+            table.addCell(item.getItemQuantity()+ "");
             table.addCell(item.getStore());
             table.addCell(item.getCheckoutTime());
             table.addCell(item.getCollector());
@@ -224,7 +224,7 @@ public class PdfManager {
         for (SummarisedArtNoReportItem summarisedArtNoReportItem : summarisedArtNoReportItemList) {
             for (ReportItem reportItem : reportItemsList) {
                 if (summarisedArtNoReportItem.getArt_number().equalsIgnoreCase(reportItem.getArtNumber())) {
-                    int total_quantity = Integer.parseInt(reportItem.getItemQuantity()) + Integer.parseInt(summarisedArtNoReportItem.getTotal_quantity());
+                    int total_quantity = reportItem.getItemQuantity() + Integer.parseInt(summarisedArtNoReportItem.getTotal_quantity());
                     summarisedArtNoReportItem.setTotal_quantity(
                             Integer.toString(total_quantity)
                     );
@@ -242,7 +242,7 @@ public class PdfManager {
                 reportItemsList.get(0).getArtNumber(),
                 reportItemsList.get(0).getColor(),
                 reportItemsList.get(0).getDescription(),
-                reportItemsList.get(0).getItemQuantity()
+                reportItemsList.get(0).getItemQuantity()+ ""
         );
         summarisedReportItemList.add(summarisedReportItem_first);
 
@@ -261,7 +261,7 @@ public class PdfManager {
                         match_boolean_color = true;
                         if (item.getDescription().equalsIgnoreCase(summarisedReportItem.getDescription())) {
                             match_boolean_description = true;
-                            int total_quantity = Integer.parseInt(item.getItemQuantity()) + Integer.parseInt(summarisedReportItem.getTotal_quantity());
+                            int total_quantity = item.getItemQuantity() + Integer.parseInt(summarisedReportItem.getTotal_quantity());
                             summarisedReportItem.setTotal_quantity(
                                     Integer.toString(total_quantity)
                             );
@@ -283,7 +283,7 @@ public class PdfManager {
                                 reportItemsList.get(x).getArtNumber(),
                                 reportItemsList.get(x).getColor(),
                                 reportItemsList.get(x).getDescription(),
-                                reportItemsList.get(x).getItemQuantity()
+                                reportItemsList.get(x).getItemQuantity()+ ""
                         )
                 );
                 match_boolean_color = true;
@@ -295,7 +295,7 @@ public class PdfManager {
                                 reportItemsList.get(x).getArtNumber(),
                                 reportItemsList.get(x).getColor(),
                                 reportItemsList.get(x).getDescription(),
-                                reportItemsList.get(x).getItemQuantity()
+                                reportItemsList.get(x).getItemQuantity()+ ""
                         )
                 );
                 match_boolean_description = true;
@@ -306,7 +306,7 @@ public class PdfManager {
                                 reportItemsList.get(x).getArtNumber(),
                                 reportItemsList.get(x).getColor(),
                                 reportItemsList.get(x).getDescription(),
-                                reportItemsList.get(x).getItemQuantity()
+                                reportItemsList.get(x).getItemQuantity() + ""
                         )
                 );
             }

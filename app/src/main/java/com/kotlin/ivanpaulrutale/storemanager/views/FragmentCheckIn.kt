@@ -15,6 +15,7 @@ import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.models.GenericResponse
 import com.kotlin.ivanpaulrutale.storemanager.models.Stores
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
+import com.kotlin.ivanpaulrutale.storemanager.utils.SelectionListener
 import com.kotlin.ivanpaulrutale.storemanager.utils.clearFields
 import com.kotlin.ivanpaulrutale.storemanager.utils.noEmptyFields
 import kotlinx.android.synthetic.main.fragment_check_in.*
@@ -81,9 +82,4 @@ class FragmentCheckIn : Fragment() {
     }
 
     private fun showMessage(message : String) = Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
-
-
-    interface SelectionListener {
-        fun getStore(store : Stores)
-    }
 }

@@ -15,10 +15,13 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.adapter.ReportListAdapter
+import com.kotlin.ivanpaulrutale.storemanager.models.GenericResponse
 import com.kotlin.ivanpaulrutale.storemanager.models.ReportItem
 import com.kotlin.ivanpaulrutale.storemanager.models.ReportsResponse
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
+import com.kotlin.ivanpaulrutale.storemanager.utils.EditListener
 import com.kotlin.ivanpaulrutale.storemanager.utils.PDFManagerUtil
+import com.kotlin.ivanpaulrutale.storemanager.utils.PasswordListener
 import kotlinx.android.synthetic.main.fragment_reports_view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -66,8 +69,14 @@ class ReportsViewFragment : Fragment() {
             storeFlag = arguments!!["store"] as String
             collectorFlag = arguments!!["collector"] as String
 
+            clearList()
             fetchReport(startDate, endDate, artNumber = artNumberFlag, color = colorFlag, description = descriptionFlag, store = storeFlag, collector = collectorFlag)
         }
+    }
+
+    private fun clearList() {
+        if (itemList.isNotEmpty())
+            itemList.clear()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -152,14 +161,28 @@ class ReportsViewFragment : Fragment() {
                                     item.itemQuantity,
                                     item.store,
                                     item.checkoutTime,
-                                    item.collector
+                                    item.itemId,
+                                    item.storeId,
+                                    item.collector,
+                                    item.checkOutQuantity,
+                                    item.id
                                 )
                                 itemList.add(reportItem)
                             }
                             if (itemList.size == 0) {
                                 reportsLabel.visibility = View.VISIBLE
                             } else {
-                                recyclerView.adapter = ReportListAdapter(itemList)
+                                recyclerView.adapter = ReportListAdapter(object : ReportListAdapter.ListListener {
+                                    override fun editCheckOut(item: ReportItem) {
+                                        PasswordBottomSheet.newInstance(object : PasswordListener {
+                                            override fun confirm(value: String) {
+                                                showCheckOutBottomSheet(item)
+                                            }
+
+                                        }).show(childFragmentManager, "password")
+                                    }
+
+                                }, itemList)
                             }
                         }
                         400 -> {
@@ -178,10 +201,48 @@ class ReportsViewFragment : Fragment() {
             })
     }
 
+    private fun showCheckOutBottomSheet(item : ReportItem) {
+        CheckOutEditBottomSheet.newInstance(object : EditListener {
+            override fun editCheckIn(id: Int, map: HashMap<String, Any>) {
+                checkOutItemEdit(reportsRecyclerView, item.itemId, item.id, map)
+            }
+
+        }, item).show(childFragmentManager, "edit_checkout_item")
+    }
+
     private fun reportNotFound() {
         reportsProgressbar.visibility = View.GONE
         reportsLabel.visibility = View.VISIBLE
         Toast.makeText(activity, "Items not found", Toast.LENGTH_LONG).show()
+    }
+
+    private fun checkOutItemEdit(view : View, itemID : Int, checkOutID : Int, map: HashMap<String, Any>) {
+        RetrofitClient.instance.editItem(itemID, checkOutID, map).enqueue(object : Callback<GenericResponse> {
+            override fun onResponse(call: Call<GenericResponse>, response: Response<GenericResponse>) {
+                Log.d("checkouts", response.toString())
+                Log.d("checkouts", map.toString())
+                when (response.code()) {
+                    200 -> {
+                        Toast.makeText(activity, "Checkout Item edited Successfully.", Toast.LENGTH_LONG).show()
+
+                        clearList()
+                        fetchReport(startDate, endDate, artNumber = artNumberFlag, color = colorFlag, description = descriptionFlag, store = storeFlag, collector = collectorFlag)
+                    }
+                    else -> {
+                        Toast.makeText(
+                            activity,
+                            "Item could not be edited.",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<GenericResponse>, t: Throwable) {
+                Log.e("CheckoutEdit:", t.message)
+            }
+        })
     }
 
     interface FileNameListener {

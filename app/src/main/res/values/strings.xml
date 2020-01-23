@@ -8,6 +8,10 @@
     <string name="menu_check_out">Check Out</string>
     <string name="menu_reports">Reports</string>
 
+    <string name="edit_check_out">Edit Check Out Item</string>
+    <string name="edit_check_in">Edit Check In</string>
+    <string name="edit_header_check_in">Editing Store Checked In Item</string>
+    <string name="edit_header_check_out">Editing Checkout Item</string>
 
     <string name="art_number">Art. number</string>
     <string name="color">Color</string>
@@ -34,6 +38,9 @@
 
     <string name="day_space_month_space_year">%s-%s-%s</string>
     <string name="enter_file_name">Enter Filename</string>
+    <string name="enter_password">Enter Password to Continue</string>
     <string name="continue_message">Continue</string>
     <string name="enter_file_name_to_continue">Enter Filename to save the report.</string>
+
+    <string name="edited_successfully">Item Edited Successfully</string>
 </resources>
