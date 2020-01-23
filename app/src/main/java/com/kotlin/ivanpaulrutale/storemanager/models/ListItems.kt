@@ -72,14 +72,49 @@ class StoreItems(
 )
 
 class ReportItem(
+    @SerializedName("artNumber")
+    @Expose
     val artNumber: String = "",
+
+    @SerializedName("color")
+    @Expose
     val color: String = "",
+
+    @SerializedName("description")
+    @Expose
     val description: String = "",
-    val itemQuantity: String = "",
+
+    @SerializedName("itemQuantity")
+    @Expose
+    val itemQuantity: Int = 0,
+
+    @SerializedName("store")
+    @Expose
     val store: String = "",
+
     @SerializedName("createdAt")
+    @Expose
     val checkoutTime: String = "",
-    val collector: String = ""
+
+    @SerializedName("itemId")
+    @Expose
+    var itemId: Int = 0,
+
+    @SerializedName("storeId")
+    @Expose
+    var storeId: Int = 0,
+
+    @SerializedName("collector")
+    @Expose
+    val collector: String = "",
+
+    @SerializedName("checkoutQuantity")
+    @Expose
+    val checkOutQuantity: Int = 0,
+
+    @SerializedName("id")
+    @Expose
+    val id: Int = 0
 )
 
 class SummarisedReportItem(

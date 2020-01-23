@@ -90,7 +90,7 @@ class FragmentCheckOut : Fragment() {
                         Toast.makeText(
                             activity,
                             "Item could not be checked out",
-                            Toast.LENGTH_SHORT
+                            Toast.LENGTH_LONG
                         ).show()
 
                     }

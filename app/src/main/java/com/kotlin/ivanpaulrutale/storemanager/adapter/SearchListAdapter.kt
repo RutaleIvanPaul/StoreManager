@@ -1,12 +1,12 @@
 package com.kotlin.ivanpaulrutale.storemanager.adapter
 
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
@@ -41,11 +41,8 @@ class SearchListAdapter(var mCallback : ListListener, var items : MutableList<St
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = filteredListItems[position]
-        holder.art_numberTextView.text = item.artNumber
-//        holder.colorTextView.text = item.color
+        holder.artNumberTextView.text = item.artNumber
         holder.descriptionTextView.text = item.description
-//        holder.quantityTextView.text = item.quantity.toString()
-//        holder.storeTextView.text = item.store
         holder.lastUpdatedTextView.text = item.updatedAt
 
         holder.itemView.setOnClickListener { view ->
@@ -60,15 +57,17 @@ class SearchListAdapter(var mCallback : ListListener, var items : MutableList<St
             Navigation.findNavController(view)
                 .navigate(R.id.action_fragmentSearch_to_fragmentCheckOut, bundle)
         }
+
+        holder.editCheckIn.setOnClickListener {
+            mCallback.editStoreItem(item)
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val art_numberTextView = itemView.findViewById(R.id.searchlist_art_number) as TextView
-        //        val colorTextView = itemView.findViewById(R.id.searchlist_color) as TextView
+        val artNumberTextView = itemView.findViewById(R.id.searchlist_art_number) as TextView
         val descriptionTextView = itemView.findViewById(R.id.searchlist_description) as TextView
-        //        val quantityTextView = itemView.findViewById(R.id.searchlist_quantity) as TextView
-//        val storeTextView = itemView.findViewById(R.id.searchlist_store) as TextView
         val lastUpdatedTextView = itemView.findViewById(R.id.searchlist_last_updated) as TextView
+        val editCheckIn = itemView.findViewById(R.id.editCheckIn) as ImageView
     }
 
     override fun getFilter(): Filter {
@@ -124,5 +123,6 @@ class SearchListAdapter(var mCallback : ListListener, var items : MutableList<St
     interface ListListener {
         fun showEmpty()
         fun hideEmpty()
+        fun editStoreItem(item : Store)
     }
 }

@@ -4,7 +4,6 @@ import com.kotlin.ivanpaulrutale.storemanager.models.GenericResponse
 import com.kotlin.ivanpaulrutale.storemanager.models.ReportsResponse
 import com.kotlin.ivanpaulrutale.storemanager.models.RequestResponse
 import com.kotlin.ivanpaulrutale.storemanager.models.StoreResponse
-import okhttp3.Response
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -36,8 +35,11 @@ interface EndPoints {
     @POST("{id}/checkout")
     fun checkoutItem(@Path("id") id : Int, @Body body: HashMap<String, Any>): Call<GenericResponse>
 
-    @PUT("items")
-    fun editItem(@Body body: HashMap<String, Any>): Call<Response>
+    @PUT("{itemId}/checkout/{checkoutId}")
+    fun editItem(@Path("itemId") itemId : Int, @Path("checkoutId") checkoutId : Int, @Body body: HashMap<String, Any>): Call<GenericResponse>
+
+    @PUT("items/{id}")
+    fun editItemCheckIn(@Path("id") id : Int, @Body body: HashMap<String, Any>): Call<GenericResponse>
 
     @GET("stores")
     fun getStores(): Call<StoreResponse>

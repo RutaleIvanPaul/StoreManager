@@ -7,47 +7,42 @@ import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kotlin.ivanpaulrutale.storemanager.R
-import com.kotlin.ivanpaulrutale.storemanager.adapter.StoresAdapter
-import com.kotlin.ivanpaulrutale.storemanager.models.StoreResponse
+import com.kotlin.ivanpaulrutale.storemanager.models.Store
 import com.kotlin.ivanpaulrutale.storemanager.models.Stores
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
+import com.kotlin.ivanpaulrutale.storemanager.utils.EditListener
 import com.kotlin.ivanpaulrutale.storemanager.utils.SelectionListener
-import kotlinx.android.synthetic.main.stores_bottom_sheet.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.kotlin.ivanpaulrutale.storemanager.utils.Utils
+import kotlinx.android.synthetic.main.edit_check_in_item.*
 
 /**
- * Created by Derick W on 21,January,2020
+ * Created by Derick W on 22,January,2020
  * Github: @wasswa-derick
  * Andela (Kampala, Uganda)
  */
-class StoreBottomSheet : BottomSheetDialogFragment() {
+class CheckInEditBottomSheet : BottomSheetDialogFragment() {
 
     private lateinit var dialog: BottomSheetDialog
     private lateinit var behavior: BottomSheetBehavior<View>
-    private var itemList: MutableList<Stores> = mutableListOf()
-    private lateinit var adapter: StoresAdapter
-    var serviceInstance = RetrofitClient
-    lateinit var mCallback : SelectionListener
+    private lateinit var mCallback : EditListener
+    var selectedStore : Stores? = null
+    var checkInItem : Store? = null
 
     companion object {
-        fun newInstance(services : RetrofitClient, selectionListener: SelectionListener) : StoreBottomSheet {
-            val obj = StoreBottomSheet()
-            obj.serviceInstance = services
-            obj.mCallback = selectionListener
+        fun newInstance(checkInItem : Store, mListener : EditListener) : CheckInEditBottomSheet {
+            val obj = CheckInEditBottomSheet()
+            obj.checkInItem = checkInItem
+            obj.mCallback = mListener
             return obj
         }
     }
@@ -92,51 +87,45 @@ class StoreBottomSheet : BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.stores_bottom_sheet, container, false)
+        return inflater.inflate(R.layout.edit_check_in_item, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = StoresAdapter(activity!!.applicationContext, itemList)
 
-        val linearLayoutManager = LinearLayoutManager(activity)
-        stores_recycler_view.layoutManager = linearLayoutManager
-        stores_recycler_view.adapter = adapter
-
-        fetchStores()
-
-        next.setOnClickListener {
-            dismiss()
-            adapter.getSelectedStore()?.let { it1 -> mCallback.getStore(it1) }
+        checkInItem?.let {
+            check_in_art_number.text = Editable.Factory.getInstance().newEditable(it.artNumber)
+            check_in_color.text = Editable.Factory.getInstance().newEditable(it.color)
+            check_in_description.text = Editable.Factory.getInstance().newEditable(it.description)
+            check_in_store.text = Editable.Factory.getInstance().newEditable(it.stores?.store)
+            check_in_quantity.text = Editable.Factory.getInstance().newEditable(it.quantity.toString())
         }
-    }
 
-    private fun fetchStores() {
-        search_progressBar.visibility = View.VISIBLE
-        serviceInstance.instance.getStores().enqueue(object : Callback<StoreResponse> {
-            override fun onResponse(call: Call<StoreResponse>, response: Response<StoreResponse>) {
-                Log.d("stores", response.toString())
-                when (response.code()) {
-                    200 -> {
-                        search_progressBar.visibility = View.GONE
-                        next.visibility = View.VISIBLE
-                        itemList.addAll(response.body()!!.storeItems as MutableList<Stores>)
-                        adapter.notifyDataSetChanged()
-
-                    }
-                    400 -> {
-                        Toast.makeText(activity, "Stores not found", Toast.LENGTH_SHORT).show()
-                    }
-                    404 -> {
-                        Toast.makeText(activity, "Stores not found", Toast.LENGTH_SHORT).show()
-                    }
+        check_in_store.setOnClickListener {
+            StoreBottomSheet.newInstance(RetrofitClient, object : SelectionListener {
+                override fun getStore(store: Stores) {
+                    selectedStore = store
+                    check_in_store.text = Editable.Factory.getInstance().newEditable(store.store)
                 }
-            }
 
-            override fun onFailure(call: Call<StoreResponse>, t: Throwable) {
-                Log.e("Stores Loading: ", t.message)
+            }).show(childFragmentManager, "stores")
+        }
+
+        check_in_button_edit.setOnClickListener {
+            if (Utils.validated(check_in_art_number, check_in_color, check_in_description, check_in_store, check_in_quantity)) {
+                dismiss()
+                val map = hashMapOf(
+                    "artNumber" to check_in_art_number.text.toString() as Any,
+                    "color" to check_in_color.text.toString() as Any,
+                    "description" to check_in_description.text.toString() as Any,
+                    "quantity" to check_in_quantity.text.toString() as Any
+                )
+                checkInItem?.let { item -> mCallback.editCheckIn(item.id, map) }
             }
-        })
+        }
+
     }
+
+
 
 }

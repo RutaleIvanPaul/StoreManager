@@ -44,91 +44,121 @@ val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
         "art_number",
         "color",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "4",
+        4,
         "store",
         "checked out",
-        "Collector Name"
+        0,
+        0,
+        "Collector Name",
+        0
     ),
     ReportItem(
         "art_number",
         "color",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "4",
+        4,
         "store",
         "checked out",
-        "Collector Name"
+        0,
+        0,
+        "Collector Name",
+        0
     ),
     ReportItem(
         "art_number2",
         "color",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "6",
+        6,
         "store",
         "checked out",
-        "Collector Name"
+        0,
+        0,
+        "Collector Name",
+        0
     ),
     ReportItem(
         "art_number3",
         "color",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "8",
+        8,
         "store",
         "checked out",
-        "Collector Name"
+        0,
+        0,
+        "Collector Name",
+        0
     ),
     ReportItem(
         "art_number3",
         "color",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "8",
+        8,
         "store",
         "checked out",
-        "Collector Name"
+        0,
+        0,
+        "Collector Name",
+        0
     ),
     ReportItem(
         "art_number4",
         "color",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "4",
+        4,
         "store",
         "checked out",
-        "Collector Name"
+        0,
+        0,
+        "Collector Name",
+        0
     ),
     ReportItem(
         "art_number4",
         "color2",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "4",
+        4,
         "store",
         "checked out",
-        "Collector Name"
+        0,
+        0,
+        "Collector Name",
+        0
     ),
     ReportItem(
         "art_number5",
         "color",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "3",
+        3,
         "store",
         "checked out",
-        "Collector Name"
+        0,
+        0,
+        "Collector Name",
+        0
     ),
     ReportItem(
         "art_number5",
         "color",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "3",
+        3,
         "store",
         "checked out",
-        "Collector Name"
+        0,
+        0,
+        "Collector Name",
+        0
     ),
     ReportItem(
         "art_number2",
         "color2",
         "Events management with onsite access control with QR-codes and Bar-codes and back end access of the database",
-        "3",
+        3,
         "store",
         "checked out",
-        "Collector Name"
+        0,
+        0,
+        "Collector Name",
+        0
     )
 )
 

@@ -11,7 +11,7 @@ import com.kotlin.ivanpaulrutale.storemanager.models.Store
  * Github: @wasswa-derick
  * Andela (Kampala, Uganda)
  */
-@Database(entities = [Store::class], version = 7, exportSchema = false)
+@Database(entities = [Store::class], version = 8, exportSchema = false)
 abstract class StoreDatabase : RoomDatabase() {
 
     abstract fun storeDao() : StoreDao

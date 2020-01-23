@@ -3,12 +3,13 @@ package com.kotlin.ivanpaulrutale.storemanager.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.models.ReportItem
 
-class ReportListAdapter(private val listItem: List<ReportItem>) :
+class ReportListAdapter(private val mCallback : ListListener, private val listItem: List<ReportItem>) :
     RecyclerView.Adapter<ReportListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -24,10 +25,14 @@ class ReportListAdapter(private val listItem: List<ReportItem>) :
         val item = listItem[position]
         holder.artNumberTextView.append(item.artNumber)
         holder.colorTextView.append(item.color)
-        holder.quantityTextView.append(item.itemQuantity)
+        holder.quantityTextView.append(item.itemQuantity.toString())
         holder.storeTextView.append(item.store)
         holder.checkoutTextView.append(item.checkoutTime)
         holder.collectorTextView.append(item.collector)
+
+        holder.editCheckOut.setOnClickListener {
+            mCallback.editCheckOut(item)
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -37,5 +42,10 @@ class ReportListAdapter(private val listItem: List<ReportItem>) :
         val storeTextView = itemView.findViewById(R.id.reports_view_store_txt) as TextView
         val checkoutTextView = itemView.findViewById(R.id.reports_view_checkout_txt) as TextView
         val collectorTextView = itemView.findViewById(R.id.reports_view_collector_txt) as TextView
+        val editCheckOut = itemView.findViewById(R.id.editCheckOut) as ImageView
+    }
+
+    interface ListListener {
+        fun editCheckOut(item : ReportItem)
     }
 }

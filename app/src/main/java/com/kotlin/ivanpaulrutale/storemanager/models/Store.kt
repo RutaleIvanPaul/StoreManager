@@ -1,9 +1,8 @@
 package com.kotlin.ivanpaulrutale.storemanager.models
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.Index
-import androidx.room.PrimaryKey
+import androidx.room.*
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created by Derick W on 20,January,2020
@@ -11,6 +10,7 @@ import androidx.room.PrimaryKey
  * Andela (Kampala, Uganda)
  */
 @Entity(tableName = "store", indices = [Index(value = ["id"], unique = true)])
+@TypeConverters(StoresConverter::class)
 data class Store(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "itemID")
@@ -38,5 +38,9 @@ data class Store(
     var createdAt: String = "",
 
     @ColumnInfo(name = "updatedAt")
-    var updatedAt: String = ""
+    var updatedAt: String = "",
+
+    @SerializedName("stores")
+    @Expose
+    var stores: Stores? = null
 )

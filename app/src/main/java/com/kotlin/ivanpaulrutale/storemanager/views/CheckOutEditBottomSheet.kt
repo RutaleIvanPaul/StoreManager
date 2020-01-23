@@ -7,47 +7,43 @@ import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kotlin.ivanpaulrutale.storemanager.R
-import com.kotlin.ivanpaulrutale.storemanager.adapter.StoresAdapter
-import com.kotlin.ivanpaulrutale.storemanager.models.StoreResponse
+import com.kotlin.ivanpaulrutale.storemanager.models.ReportItem
 import com.kotlin.ivanpaulrutale.storemanager.models.Stores
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
+import com.kotlin.ivanpaulrutale.storemanager.utils.EditListener
 import com.kotlin.ivanpaulrutale.storemanager.utils.SelectionListener
-import kotlinx.android.synthetic.main.stores_bottom_sheet.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.kotlin.ivanpaulrutale.storemanager.utils.Utils
+import kotlinx.android.synthetic.main.edit_check_out_item.*
 
 /**
- * Created by Derick W on 21,January,2020
+ * Created by Derick W on 22,January,2020
  * Github: @wasswa-derick
  * Andela (Kampala, Uganda)
  */
-class StoreBottomSheet : BottomSheetDialogFragment() {
+class CheckOutEditBottomSheet : BottomSheetDialogFragment() {
 
     private lateinit var dialog: BottomSheetDialog
     private lateinit var behavior: BottomSheetBehavior<View>
-    private var itemList: MutableList<Stores> = mutableListOf()
-    private lateinit var adapter: StoresAdapter
-    var serviceInstance = RetrofitClient
-    lateinit var mCallback : SelectionListener
+    private lateinit var mCallback : EditListener
+    var reportItem : ReportItem? = null
+    var selectedStore : Stores? = null
+    lateinit var itemStore : Stores
 
     companion object {
-        fun newInstance(services : RetrofitClient, selectionListener: SelectionListener) : StoreBottomSheet {
-            val obj = StoreBottomSheet()
-            obj.serviceInstance = services
-            obj.mCallback = selectionListener
+        fun newInstance(mListener : EditListener, reportItem: ReportItem) : CheckOutEditBottomSheet {
+            val obj = CheckOutEditBottomSheet()
+            obj.mCallback = mListener
+            obj.reportItem = reportItem
             return obj
         }
     }
@@ -92,51 +88,47 @@ class StoreBottomSheet : BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.stores_bottom_sheet, container, false)
+        return inflater.inflate(R.layout.edit_check_out_item, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = StoresAdapter(activity!!.applicationContext, itemList)
 
-        val linearLayoutManager = LinearLayoutManager(activity)
-        stores_recycler_view.layoutManager = linearLayoutManager
-        stores_recycler_view.adapter = adapter
+        reportItem?.let {
+            checkout_art_number.text = Editable.Factory.getInstance().newEditable(it.artNumber)
+            checkout_color.text = Editable.Factory.getInstance().newEditable(it.color)
+            checkout_description.text = Editable.Factory.getInstance().newEditable(it.description)
+            checkout_collector.text = Editable.Factory.getInstance().newEditable(it.collector)
+            checkout_store.text = Editable.Factory.getInstance().newEditable(it.store)
+            checkout_quantity.text = Editable.Factory.getInstance().newEditable(it.checkOutQuantity.toString())
+            itemStore = Stores(it.storeId, it.store, false)
+        }
 
-        fetchStores()
+        checkout_button_edit.setOnClickListener {
+            if (Utils.validated(checkout_quantity, checkout_collector, checkout_store)) {
+                dismiss()
+                val map = hashMapOf(
+                    "artNumber" to checkout_art_number.text.toString() as Any,
+                    "color" to checkout_color.text.toString() as Any,
+                    "description" to checkout_description.text.toString() as Any,
+                    "quantity" to checkout_quantity.text.toString() as Any,
+                    "collector" to checkout_collector.text.toString() as Any,
+                    "storeId" to (selectedStore?.id ?: itemStore.id).toString() as Any,
+                    "store" to (selectedStore?.store ?: itemStore.store) as Any
+                )
+                reportItem?.let { mCallback.editCheckIn(it.id, map) }
+            }
+        }
 
-        next.setOnClickListener {
-            dismiss()
-            adapter.getSelectedStore()?.let { it1 -> mCallback.getStore(it1) }
+
+        checkout_store.setOnClickListener {
+            StoreBottomSheet.newInstance(RetrofitClient, object : SelectionListener {
+                override fun getStore(store: Stores) {
+                    selectedStore = store
+                    checkout_store.text = Editable.Factory.getInstance().newEditable(store.store)
+                }
+
+            }).show(childFragmentManager, "stores")
         }
     }
-
-    private fun fetchStores() {
-        search_progressBar.visibility = View.VISIBLE
-        serviceInstance.instance.getStores().enqueue(object : Callback<StoreResponse> {
-            override fun onResponse(call: Call<StoreResponse>, response: Response<StoreResponse>) {
-                Log.d("stores", response.toString())
-                when (response.code()) {
-                    200 -> {
-                        search_progressBar.visibility = View.GONE
-                        next.visibility = View.VISIBLE
-                        itemList.addAll(response.body()!!.storeItems as MutableList<Stores>)
-                        adapter.notifyDataSetChanged()
-
-                    }
-                    400 -> {
-                        Toast.makeText(activity, "Stores not found", Toast.LENGTH_SHORT).show()
-                    }
-                    404 -> {
-                        Toast.makeText(activity, "Stores not found", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<StoreResponse>, t: Throwable) {
-                Log.e("Stores Loading: ", t.message)
-            }
-        })
-    }
-
 }

@@ -197,7 +197,7 @@ class PDFManagerUtil {
                 table.addCell(item.artNumber)
                 table.addCell(item.color)
                 table.addCell(item.description)
-                table.addCell(item.itemQuantity)
+                table.addCell(item.itemQuantity.toString())
                 table.addCell(item.store)
                 table.addCell(item.checkoutTime)
                 table.addCell(item.collector)
@@ -233,7 +233,7 @@ class PDFManagerUtil {
                 {
                     if (summarisedArtNoReportItem.art_number.equals(reportItem.artNumber, ignoreCase = true))
                     {
-                        val total_quantity = Integer.parseInt(reportItem.itemQuantity) + Integer.parseInt(summarisedArtNoReportItem.total_quantity)
+                        val total_quantity = Integer.parseInt(reportItem.itemQuantity.toString()) + Integer.parseInt(summarisedArtNoReportItem.total_quantity)
                         summarisedArtNoReportItem.total_quantity = Integer.toString(total_quantity)
                     }
                 }
@@ -249,7 +249,7 @@ class PDFManagerUtil {
                 reportItemsList[0].artNumber,
                 reportItemsList[0].color,
                 reportItemsList[0].description,
-                reportItemsList[0].itemQuantity
+                reportItemsList[0].itemQuantity.toString()
             )
             summarisedReportItemList.add(summarisedReportItem_first)
 
@@ -273,7 +273,7 @@ class PDFManagerUtil {
                             if (item.description.equals(summarisedReportItem.description, ignoreCase = true))
                             {
                                 match_boolean_description = true
-                                val total_quantity = Integer.parseInt(item.itemQuantity) + Integer.parseInt(summarisedReportItem.total_quantity)
+                                val total_quantity = Integer.parseInt(item.itemQuantity.toString()) + Integer.parseInt(summarisedReportItem.total_quantity)
                                 summarisedReportItem.total_quantity = Integer.toString(total_quantity)
                             }
                             else
@@ -301,7 +301,7 @@ class PDFManagerUtil {
                             reportItemsList[x].artNumber,
                             reportItemsList[x].color,
                             reportItemsList[x].description,
-                            reportItemsList[x].itemQuantity
+                            reportItemsList[x].itemQuantity.toString()
                         )
                     )
                     match_boolean_color = true
@@ -315,7 +315,7 @@ class PDFManagerUtil {
                             reportItemsList[x].artNumber,
                             reportItemsList[x].color,
                             reportItemsList[x].description,
-                            reportItemsList[x].itemQuantity
+                            reportItemsList[x].itemQuantity.toString()
                         )
                     )
                     match_boolean_description = true
@@ -328,7 +328,7 @@ class PDFManagerUtil {
                             reportItemsList[x].artNumber,
                             reportItemsList[x].color,
                             reportItemsList[x].description,
-                            reportItemsList[x].itemQuantity
+                            reportItemsList[x].itemQuantity.toString()
                         )
                     )
                 }
