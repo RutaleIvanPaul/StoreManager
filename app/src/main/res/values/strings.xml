@@ -43,4 +43,7 @@
     <string name="enter_file_name_to_continue">Enter Filename to save the report.</string>
 
     <string name="edited_successfully">Item Edited Successfully</string>
+
+    <string name="password_wrong">Incorrect Password</string>
+    <string name="quantities">Quantity: %1$s</string>
 </resources>

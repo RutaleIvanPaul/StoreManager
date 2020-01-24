@@ -71,7 +71,7 @@ class FragmentReports : Fragment(), com.wdullaer.materialdatetimepicker.date.Dat
         now.set(Calendar.YEAR, year)
         now.set(Calendar.MONTH, monthOfYear)
         now.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-        val selection = Utils.getDate(activity!!.applicationContext, now.time)
+        val selection = Utils.getISODate(now.time)
         view?.dismiss()
         dateView.text = Editable.Factory.getInstance().newEditable(selection)
     }

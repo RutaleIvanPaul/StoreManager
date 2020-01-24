@@ -165,3 +165,13 @@ lint/tmp/
 
 app/app.iml
 .idea/codeStyles
+
+/gradle.properties
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures

@@ -182,7 +182,7 @@ class ReportsViewFragment : Fragment() {
                                         }).show(childFragmentManager, "password")
                                     }
 
-                                }, itemList)
+                                }, itemList, activity!!.applicationContext)
                             }
                         }
                         400 -> {

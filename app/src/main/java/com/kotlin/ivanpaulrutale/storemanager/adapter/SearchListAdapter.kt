@@ -1,6 +1,7 @@
 package com.kotlin.ivanpaulrutale.storemanager.adapter
 
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,9 +15,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.ivanpaulrutale.storemanager.Constants
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.models.Store
+import com.kotlin.ivanpaulrutale.storemanager.utils.Utils
 import java.util.ArrayList
 
-class SearchListAdapter(var mCallback : ListListener, var items : MutableList<Store>) : RecyclerView.Adapter<SearchListAdapter.ViewHolder>(), Filterable {
+class SearchListAdapter(var mCallback : ListListener, var items : MutableList<Store>, var context : Context) : RecyclerView.Adapter<SearchListAdapter.ViewHolder>(), Filterable {
 
     private var listItems: MutableList<Store> = items
     private var filteredListItems: MutableList<Store> = items
@@ -43,14 +45,17 @@ class SearchListAdapter(var mCallback : ListListener, var items : MutableList<St
         val item = filteredListItems[position]
         holder.artNumberTextView.text = item.artNumber
         holder.descriptionTextView.text = item.description
-        holder.lastUpdatedTextView.text = item.updatedAt
+        holder.lastUpdatedTextView.text = Utils.getDateFromString(item.updatedAt, context)
+        holder.searchlistQuantity.text = context.getString(R.string.quantities, item.quantity.toString())
+        holder.searchlistStore.text = item.stores!!.store
+        holder.searchlistColor.text = item.color
 
         holder.itemView.setOnClickListener { view ->
             val bundle = bundleOf(
                 "art_number" to item.artNumber,
                 "color" to item.color,
                 "description" to item.description,
-                "store" to item.store,
+                "store" to (item.stores?.store ?: item.store),
                 "id" to item.id,
                 "quantity" to item.quantity
             )
@@ -67,6 +72,9 @@ class SearchListAdapter(var mCallback : ListListener, var items : MutableList<St
         val artNumberTextView = itemView.findViewById(R.id.searchlist_art_number) as TextView
         val descriptionTextView = itemView.findViewById(R.id.searchlist_description) as TextView
         val lastUpdatedTextView = itemView.findViewById(R.id.searchlist_last_updated) as TextView
+        val searchlistStore = itemView.findViewById(R.id.searchlist_store) as TextView
+        val searchlistQuantity = itemView.findViewById(R.id.searchlist_quantity) as TextView
+        val searchlistColor = itemView.findViewById(R.id.searchlist_color) as TextView
         val editCheckIn = itemView.findViewById(R.id.editCheckIn) as ImageView
     }
 

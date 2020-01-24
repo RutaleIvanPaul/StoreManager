@@ -1,5 +1,6 @@
 package com.kotlin.ivanpaulrutale.storemanager.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.models.ReportItem
+import com.kotlin.ivanpaulrutale.storemanager.utils.Utils
 
-class ReportListAdapter(private val mCallback : ListListener, private val listItem: List<ReportItem>) :
+class ReportListAdapter(private val mCallback : ListListener, private val listItem: List<ReportItem>, var context: Context) :
     RecyclerView.Adapter<ReportListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -27,7 +29,7 @@ class ReportListAdapter(private val mCallback : ListListener, private val listIt
         holder.colorTextView.append(item.color)
         holder.quantityTextView.append(item.itemQuantity.toString())
         holder.storeTextView.append(item.store)
-        holder.checkoutTextView.append(item.checkoutTime)
+        holder.checkoutTextView.append(Utils.getDateFromString(item.checkoutTime, context))
         holder.collectorTextView.append(item.collector)
 
         holder.editCheckOut.setOnClickListener {

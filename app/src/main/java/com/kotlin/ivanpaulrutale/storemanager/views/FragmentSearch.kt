@@ -22,6 +22,7 @@ import com.kotlin.ivanpaulrutale.storemanager.models.RequestResponse
 import com.kotlin.ivanpaulrutale.storemanager.models.Store
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
 import com.kotlin.ivanpaulrutale.storemanager.utils.EditListener
+import com.kotlin.ivanpaulrutale.storemanager.utils.PasswordListener
 import kotlinx.android.synthetic.main.fragment_search.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -97,7 +98,12 @@ class FragmentSearch : Fragment(), SearchView.OnQueryTextListener {
     private fun initializeRecyclerView(view: View) {
         recyclerViewAdapter = SearchListAdapter(object : SearchListAdapter.ListListener {
             override fun editStoreItem(item: Store) {
-                showStoreItemEdition(item, view)
+                PasswordBottomSheet.newInstance(object : PasswordListener {
+                    override fun confirm(value: String) {
+                        showStoreItemEdition(item, view)
+                    }
+
+                }).show(childFragmentManager, "password")
             }
 
             override fun showEmpty() {
@@ -108,7 +114,7 @@ class FragmentSearch : Fragment(), SearchView.OnQueryTextListener {
                 hideEmptyItems()
             }
 
-        }, itemList)
+        }, itemList, activity!!.applicationContext)
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.search_recycler_view)
         val linearLayoutManager = LinearLayoutManager(activity)

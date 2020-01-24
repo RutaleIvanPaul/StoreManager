@@ -11,10 +11,12 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.kotlin.ivanpaulrutale.storemanager.BuildConfig
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.utils.PasswordListener
 import com.kotlin.ivanpaulrutale.storemanager.utils.Utils
@@ -91,8 +93,16 @@ class PasswordBottomSheet : BottomSheetDialogFragment() {
 
         save.setOnClickListener {
             if (Utils.validated(password)) {
-                dismiss()
-                mCallback.confirm(password.text.toString())
+                val passCode = BuildConfig.EDITIONS
+                if (passCode.equals(password.text.toString() , true)) {
+                    dismiss()
+                    mCallback.confirm(password.text.toString())
+                } else {
+                    activity?.applicationContext?.let {
+                        Toast.makeText(it, it.getString(R.string.password_wrong), Toast.LENGTH_LONG).show()
+                    }
+                }
+
             }
         }
     }
