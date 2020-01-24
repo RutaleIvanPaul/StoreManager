@@ -50,7 +50,9 @@ val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
         0,
         0,
         "Collector Name",
-        0
+        0,
+        2,
+        2
     ),
     ReportItem(
         "art_number",
@@ -62,7 +64,9 @@ val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
         0,
         0,
         "Collector Name",
-        0
+        0,
+        2,
+        2
     ),
     ReportItem(
         "art_number2",
@@ -74,7 +78,9 @@ val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
         0,
         0,
         "Collector Name",
-        0
+        0,
+        2,
+        2
     ),
     ReportItem(
         "art_number3",
@@ -86,7 +92,9 @@ val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
         0,
         0,
         "Collector Name",
-        0
+        0,
+        2,
+        2
     ),
     ReportItem(
         "art_number3",
@@ -98,7 +106,9 @@ val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
         0,
         0,
         "Collector Name",
-        0
+        0,
+        2,
+        2
     ),
     ReportItem(
         "art_number4",
@@ -110,7 +120,9 @@ val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
         0,
         0,
         "Collector Name",
-        0
+        0,
+        2,
+        2
     ),
     ReportItem(
         "art_number4",
@@ -122,7 +134,9 @@ val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
         0,
         0,
         "Collector Name",
-        0
+        0,
+        2,
+        2
     ),
     ReportItem(
         "art_number5",
@@ -134,7 +148,9 @@ val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
         0,
         0,
         "Collector Name",
-        0
+        0,
+        2,
+        2
     ),
     ReportItem(
         "art_number5",
@@ -146,7 +162,9 @@ val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
         0,
         0,
         "Collector Name",
-        0
+        0,
+        2,
+        2
     ),
     ReportItem(
         "art_number2",
@@ -158,7 +176,9 @@ val reportlistItemObjects: ArrayList<ReportItem> = arrayListOf(
         0,
         0,
         "Collector Name",
-        0
+        0,
+        2,
+        2
     )
 )
 

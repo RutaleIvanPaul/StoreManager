@@ -16,38 +16,36 @@ import androidx.annotation.RequiresApi
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.kotlin.ivanpaulrutale.storemanager.Constants
 import com.kotlin.ivanpaulrutale.storemanager.R
-import com.kotlin.ivanpaulrutale.storemanager.models.ReportItem
 import com.kotlin.ivanpaulrutale.storemanager.models.Stores
-import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
-import com.kotlin.ivanpaulrutale.storemanager.utils.EditListener
-import com.kotlin.ivanpaulrutale.storemanager.utils.SelectionListener
 import com.kotlin.ivanpaulrutale.storemanager.utils.Utils
-import kotlinx.android.synthetic.main.edit_check_out_item.*
+import com.kotlin.ivanpaulrutale.storemanager.utils.remove
+import com.kotlin.ivanpaulrutale.storemanager.utils.show
+import kotlinx.android.synthetic.main.manage_stores.*
 
 /**
- * Created by Derick W on 22,January,2020
+ * Created by Derick W on 25,January,2020
  * Github: @wasswa-derick
  * Andela (Kampala, Uganda)
  */
-class CheckOutEditBottomSheet : BottomSheetDialogFragment() {
+class ManageStoresBottomSheet : BottomSheetDialogFragment() {
 
     private lateinit var dialog: BottomSheetDialog
     private lateinit var behavior: BottomSheetBehavior<View>
-    private lateinit var mCallback : EditListener
-    var reportItem : ReportItem? = null
-    var selectedStore : Stores? = null
-    lateinit var itemStore : Stores
+    private lateinit var status : String
+    private lateinit var mCallback : FragmentStores.StoresListener
+    var store : Stores? = null
 
     companion object {
-        fun newInstance(mListener : EditListener, reportItem: ReportItem) : CheckOutEditBottomSheet {
-            val obj = CheckOutEditBottomSheet()
-            obj.mCallback = mListener
-            obj.reportItem = reportItem
+        fun newInstance(stores: Stores?, status : String, storesListener: FragmentStores.StoresListener) : ManageStoresBottomSheet {
+            val obj = ManageStoresBottomSheet()
+            obj.status = status
+            obj.mCallback = storesListener
+            obj.store = stores
             return obj
         }
     }
-
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         dialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
@@ -88,47 +86,60 @@ class CheckOutEditBottomSheet : BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.edit_check_out_item, container, false)
+        return inflater.inflate(R.layout.manage_stores, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        reportItem?.let {
-            checkout_art_number.text = Editable.Factory.getInstance().newEditable(it.artNumber)
-            checkout_color.text = Editable.Factory.getInstance().newEditable(it.color)
-            checkout_description.text = Editable.Factory.getInstance().newEditable(it.description)
-            checkout_collector.text = Editable.Factory.getInstance().newEditable(it.collector)
-            checkout_store.text = Editable.Factory.getInstance().newEditable(it.store)
-            checkout_quantity.text = Editable.Factory.getInstance().newEditable(it.checkOutQuantity.toString())
-            itemStore = Stores(0, it.storeId, it.store, false)
+        if (status.contentEquals(Constants.ADD))
+            confirm.text = activity!!.applicationContext.getString(R.string.add_store)
+
+        if (status.contentEquals(Constants.EDIT)) {
+            confirm.text = activity!!.applicationContext.getString(R.string.edit_store)
+            store_layout.hint = activity!!.applicationContext.getString(R.string.edit_store_name)
+            storeName.text = Editable.Factory.getInstance().newEditable(store?.store)
         }
 
-        checkout_button_edit.setOnClickListener {
-            if (Utils.validated(checkout_quantity, checkout_collector, checkout_store)) {
-                dismiss()
-                val map = hashMapOf(
-                    "artNumber" to checkout_art_number.text.toString() as Any,
-                    "color" to checkout_color.text.toString() as Any,
-                    "description" to checkout_description.text.toString() as Any,
-                    "quantity" to checkout_quantity.text.toString() as Any,
-                    "collector" to checkout_collector.text.toString() as Any,
-                    "storeId" to (selectedStore?.id ?: itemStore.id).toString() as Any,
-                    "store" to (selectedStore?.store ?: itemStore.store) as Any
-                )
-                reportItem?.let { mCallback.editCheckIn(it.id, map) }
+        if (status.contentEquals(Constants.DELETE)) {
+            confirm.text = activity!!.applicationContext.getString(R.string.delete_store)
+            store_layout.hint = activity!!.applicationContext.getString(R.string.store)
+            storeName.text = Editable.Factory.getInstance().newEditable(store?.store)
+
+            val storeValue = store!!.store
+            activity?.applicationContext?.let {
+                confirmation_message.text = it.getString(R.string.deletion_confirm, storeValue)
             }
+            storeName.remove()
+            confirmation_message.show()
         }
 
-
-        checkout_store.setOnClickListener {
-            StoreBottomSheet.newInstance(RetrofitClient, object : SelectionListener {
-                override fun getStore(store: Stores) {
-                    selectedStore = store
-                    checkout_store.text = Editable.Factory.getInstance().newEditable(store.store)
+        confirm.setOnClickListener {
+            if (Utils.validated(storeName)) {
+                if (status.contentEquals(Constants.ADD)) {
+                    dismiss()
+                    mCallback.addStore(storeName.text.toString())
                 }
 
-            }).show(childFragmentManager, "stores")
+                if (status.contentEquals(Constants.EDIT)) {
+                    store?.let { it1 ->
+                        if (it1.store.equals(storeName.text.toString(), true)) {
+                            dismiss()
+                        } else {
+                            dismiss()
+                            mCallback.editStore(it1, storeName.text.toString())
+                        }
+                    }
+                }
+
+                if (status.contentEquals(Constants.DELETE)) {
+                    store?.let { it1 ->
+                        dismiss()
+                        mCallback.deleteStore(it1)
+                    }
+                }
+            }
         }
     }
+
 }

@@ -10,6 +10,7 @@
     <dist:module dist:instant="true" />
 
     <application
+            android:name=".StoreManagerApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_logo_foreground"
             android:label="@string/app_name"

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:paddingTop="24dp"
+    android:paddingBottom="48dp"
+    android:focusableInTouchMode="true"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/header"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/manage_stores"
+        android:textSize="18sp"
+        android:textColor="@color/primaryText"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/confirmation_message"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="@dimen/sz_24"
+        android:text="@string/deletion_confirm"
+        android:textSize="18sp"
+        android:textColor="@color/secondaryText"
+        app:layout_constraintBottom_toTopOf="@+id/confirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/store_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/storeName"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/enter_store_name" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sz_48"
+        android:text="@string/add_store"
+        app:layout_constraintEnd_toEndOf="@+id/store_layout"
+        app:layout_constraintTop_toBottomOf="@+id/store_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

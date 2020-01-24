@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         val destinations = setOf(
             R.id.fragmentSearch,
             R.id.fragmentCheckIn,
-            R.id.fragmentReports
+            R.id.fragmentReports,
+            R.id.fragmentStores
         )
 
         appBarConfig = AppBarConfiguration(destinations, drawer_layout)

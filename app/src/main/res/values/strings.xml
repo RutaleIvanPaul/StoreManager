@@ -7,6 +7,7 @@
     <string name="menu_check_in">Check In</string>
     <string name="menu_check_out">Check Out</string>
     <string name="menu_reports">Reports</string>
+    <string name="menu_stores">Stores</string>
 
     <string name="edit_check_out">Edit Check Out Item</string>
     <string name="edit_check_in">Edit Check In</string>
@@ -43,4 +44,32 @@
     <string name="enter_file_name_to_continue">Enter Filename to save the report.</string>
 
     <string name="edited_successfully">Item Edited Successfully</string>
+
+    <string name="password_wrong">Incorrect Password</string>
+    <string name="quantities">Quantity: %1$s</string>
+
+    <string name="report_art_number">Art Number: %1$s</string>
+    <string name="report_color">Color: %1$s</string>
+    <string name="report_quantity">Quantity: %1$s</string>
+    <string name="report_store">Store: %1$s</string>
+    <string name="report_checkout">Checkout: %1$s</string>
+    <string name="report_collector">Collector: %1$s</string>
+    <string name="report_check_in">Check-In: %1$s</string>
+
+    <string name="add_store">Add Store</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+
+    <string name="no_stores">No Stores</string>
+    <string name="edit_store">Edit Store</string>
+    <string name="delete_store">Delete Store</string>
+    <string name="deletion_confirm">Are you sure you want delete this store (%1$s)?\nDeleting this store will remove all the items checked out.</string>
+    <string name="deletion_effect">Deleting this store will remove all the items checked out.</string>
+    <string name="enter_store_name">Enter Store Name</string>
+    <string name="edit_store_name">Edit Store Name</string>
+    <string name="manage_stores">Manage Stores</string>
+    <string name="check_in_report">Check-In Report</string>
+    <string name="check_out_report">Checkout Report</string>
+    <string name="checkStatus">Please Select a Report Status to Continue</string>
+
 </resources>

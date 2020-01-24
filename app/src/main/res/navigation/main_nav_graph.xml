@@ -75,5 +75,13 @@
             android:name="collector"
             app:argType="string" />
 
+        <argument
+            android:name="checkStatus"
+            app:argType="integer" />
+
     </fragment>
+    <fragment
+        android:id="@+id/fragmentStores"
+        android:name="com.kotlin.ivanpaulrutale.storemanager.views.FragmentStores"
+        android:label="Stores" />
 </navigation>

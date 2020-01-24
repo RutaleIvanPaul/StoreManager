@@ -24,12 +24,25 @@
             android:layout_marginEnd="16dp"
             android:ellipsize="end"
             android:lines="1"
-            android:text="QR code access control - UGX2,000,000"
+            android:text="QR code access"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/editCheckIn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/searchlist_color"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/searchlist_art_number"
+            app:layout_constraintStart_toStartOf="@+id/searchlist_art_number"
+            app:layout_constraintTop_toBottomOf="@+id/searchlist_art_number" />
 
         <TextView
             android:id="@+id/searchlist_description"
@@ -38,33 +51,72 @@
             android:layout_marginTop="4dp"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text="Events management with onsite access control "
+            android:text="Events management"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/searchlist_art_number"
-            app:layout_constraintStart_toStartOf="@+id/searchlist_art_number"
-            app:layout_constraintTop_toBottomOf="@+id/searchlist_art_number" />
+            app:layout_constraintEnd_toEndOf="@+id/searchlist_color"
+            app:layout_constraintStart_toStartOf="@+id/searchlist_color"
+            app:layout_constraintTop_toBottomOf="@+id/searchlist_color" />
 
         <TextView
-            android:id="@+id/searchlist_last_updated"
-            android:layout_width="wrap_content"
+            android:id="@+id/searchlist_quantity"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center_vertical"
-            android:textSize="12sp"
-            android:text="1:12:00 PM"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            android:layout_marginTop="4dp"
+            android:text="Quantity"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/searchlist_description"
+            app:layout_constraintStart_toStartOf="@+id/searchlist_description"
             app:layout_constraintTop_toBottomOf="@+id/searchlist_description" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:src="@drawable/ic_time_black"
-            app:layout_constraintBottom_toBottomOf="@+id/searchlist_last_updated"
-            app:layout_constraintStart_toStartOf="@+id/searchlist_description" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintEnd_toEndOf="@+id/searchlist_quantity"
+            app:layout_constraintStart_toStartOf="@+id/searchlist_quantity"
+            app:layout_constraintTop_toBottomOf="@+id/searchlist_quantity"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/searchlist_store"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Store"
+                android:textSize="14sp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/searchlist_last_updated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                android:text="1:12:00 PM"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:src="@drawable/ic_time_black"
+                app:layout_constraintEnd_toStartOf="@+id/searchlist_last_updated"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
         <ImageView
             android:clickable="true"

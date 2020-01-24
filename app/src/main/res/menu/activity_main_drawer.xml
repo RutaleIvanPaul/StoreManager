@@ -19,4 +19,11 @@
         android:id="@id/fragmentReports"
         android:icon="@drawable/ic_menu_portfolio"
         android:title="@string/menu_reports" />
+
+    <item
+        android:id="@+id/fragmentStores"
+        android:icon="@drawable/ic_stores"
+        android:title="@string/menu_stores"
+        />
+
 </menu>

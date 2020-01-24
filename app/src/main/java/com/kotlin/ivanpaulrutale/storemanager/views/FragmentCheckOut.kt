@@ -14,6 +14,8 @@ import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.models.GenericResponse
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
 import com.kotlin.ivanpaulrutale.storemanager.utils.Utils
+import com.kotlin.ivanpaulrutale.storemanager.utils.remove
+import com.kotlin.ivanpaulrutale.storemanager.utils.show
 import kotlinx.android.synthetic.main.fragment_check_out.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -59,11 +61,33 @@ class FragmentCheckOut : Fragment() {
                         "quantity" to checkout_quantity.text.toString() as Any,
                         "store" to checkout_store.text.toString() as Any
                     )
+                    showProgress()
                     checkoutItems(it, itemID, map)
                 }
             }
         }
 
+    }
+
+    private fun showProgress() {
+        checking_out.show()
+
+        storeLayout.remove()
+        artNumberLayout.remove()
+        colorLayout.remove()
+        descriptionLayout.remove()
+        quantityLayout.remove()
+        checkout_button.remove()
+    }
+
+    private fun hideProgress() {
+        checking_out.remove()
+
+        artNumberLayout.show()
+        colorLayout.show()
+        descriptionLayout.show()
+        quantityLayout.show()
+        checkout_button.show()
     }
 
     private fun getDataFromBundle() {
@@ -82,11 +106,13 @@ class FragmentCheckOut : Fragment() {
             override fun onResponse(call: Call<GenericResponse>, response: retrofit2.Response<GenericResponse>) {
                 when (response.code()) {
                     200 -> {
+                        hideProgress()
                         Toast.makeText(activity, "Item checked out", Toast.LENGTH_LONG).show()
                         Navigation.findNavController(view)
                             .navigate(R.id.fragmentSearch)
                     }
                     else -> {
+                        hideProgress()
                         Toast.makeText(
                             activity,
                             "Item could not be checked out",

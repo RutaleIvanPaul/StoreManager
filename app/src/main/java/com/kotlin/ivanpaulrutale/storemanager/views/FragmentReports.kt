@@ -1,11 +1,13 @@
 package com.kotlin.ivanpaulrutale.storemanager.views
 
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -24,6 +26,7 @@ class FragmentReports : Fragment(), com.wdullaer.materialdatetimepicker.date.Dat
     private var now = Calendar.getInstance()
     private var calendar = Calendar.getInstance()
     private lateinit var dateView : TextInputEditText
+    private var checkStatus = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_reports, container, false)
@@ -51,29 +54,59 @@ class FragmentReports : Fragment(), com.wdullaer.materialdatetimepicker.date.Dat
             } else if (reports_enddate_txt.text.toString().isEmpty() || reports_enddate_txt.text.toString().isBlank()) {
                 reports_enddate_txt.error = "please provide an end date"
             } else {
-                val bundle = bundleOf(
-                    "startDate" to reports_startdate_txt.text.toString(),
-                    "endDate" to reports_enddate_txt.text.toString(),
-                    "store" to store.text.toString(),
-                    "color" to color.text.toString(),
-                    "artNumber" to art_number.text.toString(),
-                    "collector" to collector.text.toString(),
-                    "description" to description.text.toString()
-                )
+                if (checkStatus == 0) {
+                    activity?.applicationContext?.let {
+                        Toast.makeText(it, it.getString(R.string.checkStatus), Toast.LENGTH_LONG).show()
+                    }
+                } else {
+                    val bundle = bundleOf(
+                        "startDate" to reports_startdate_txt.tag.toString(),
+                        "endDate" to reports_enddate_txt.tag.toString(),
+                        "store" to store.text.toString(),
+                        "color" to color.text.toString(),
+                        "artNumber" to art_number.text.toString(),
+                        "collector" to collector.text.toString(),
+                        "description" to description.text.toString(),
+                        "checkStatus" to checkStatus
+                    )
 
-                Navigation.findNavController(fragView)
-                    .navigate(R.id.action_fragmentReports_to_reportsViewFragment, bundle)
+                    Navigation.findNavController(fragView)
+                        .navigate(R.id.action_fragmentReports_to_reportsViewFragment, bundle)
+
+                    reports_startdate_txt.text = Editable.Factory.getInstance().newEditable("")
+                    reports_enddate_txt.text = Editable.Factory.getInstance().newEditable("")
+                }
             }
         }
+
+        checkIn.setOnClickListener {
+            checkInText.setTextColor(Color.parseColor("#FFFFFF"))
+            checkIn.setBackgroundResource(R.drawable.toggle_shape_active)
+
+            checkOutText.setTextColor(Color.parseColor("#212121"))
+            checkOut.setBackgroundResource(R.drawable.toggles_shape)
+            checkStatus = 1
+        }
+        checkOut.setOnClickListener {
+            checkOutText.setTextColor(Color.parseColor("#FFFFFF"))
+            checkOut.setBackgroundResource(R.drawable.toggle_shape_active)
+
+            checkInText.setTextColor(Color.parseColor("#212121"))
+            checkIn.setBackgroundResource(R.drawable.toggles_shape)
+            checkStatus = 2
+        }
+
     }
 
     override fun onDateSet(view: com.wdullaer.materialdatetimepicker.date.DatePickerDialog?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
         now.set(Calendar.YEAR, year)
         now.set(Calendar.MONTH, monthOfYear)
         now.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-        val selection = Utils.getDate(activity!!.applicationContext, now.time)
+        val selection = Utils.getISODate(now.time)
+        val selectionDate = Utils.getDate(activity!!.applicationContext, now.time)
         view?.dismiss()
-        dateView.text = Editable.Factory.getInstance().newEditable(selection)
+        dateView.tag = selection
+        dateView.text = Editable.Factory.getInstance().newEditable(selectionDate)
     }
 
     private fun setDate() {

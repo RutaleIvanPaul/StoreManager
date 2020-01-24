@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:focusable="true"
     android:padding="8dp"
     android:layout_margin="8dp"
     android:focusableInTouchMode="true"
+    android:focusable="true"
     android:background="@android:color/white"
-    tools:context=".views.FragmentReports">
+    tools:context=".views.FragmentReports"
+    tools:ignore="UnusedAttribute">
 
 
     <CheckedTextView

@@ -15,9 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.adapter.ReportListAdapter
-import com.kotlin.ivanpaulrutale.storemanager.models.GenericResponse
-import com.kotlin.ivanpaulrutale.storemanager.models.ReportItem
-import com.kotlin.ivanpaulrutale.storemanager.models.ReportsResponse
+import com.kotlin.ivanpaulrutale.storemanager.models.*
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
 import com.kotlin.ivanpaulrutale.storemanager.utils.EditListener
 import com.kotlin.ivanpaulrutale.storemanager.utils.PDFManagerUtil
@@ -39,10 +37,12 @@ class ReportsViewFragment : Fragment() {
     var artNumberFlag = ""
     var storeFlag = ""
     var collectorFlag = ""
+    var checkStatus = 0
     val TAG = "ReportsViewFragment: "
 
     private var itemList = mutableListOf<ReportItem>()
     private lateinit var recyclerView: RecyclerView
+    private lateinit var mAdapter : ReportListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,9 +55,22 @@ class ReportsViewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mAdapter = ReportListAdapter(object : ReportListAdapter.ListListener {
+            override fun editCheckOut(item: ReportItem) {
+                PasswordBottomSheet.newInstance(object : PasswordListener {
+                    override fun confirm(value: String) {
+                        showCheckOutBottomSheet(item)
+                    }
+
+                }).show(childFragmentManager, "password")
+            }
+
+        }, itemList, activity!!.applicationContext, checkStatus)
 
         recyclerView = view.findViewById(R.id.reportsRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = mAdapter
+
 
         if (arguments != null) {
             startDate = arguments!!["startDate"] as String
@@ -68,9 +81,18 @@ class ReportsViewFragment : Fragment() {
             artNumberFlag = arguments!!["artNumber"] as String
             storeFlag = arguments!!["store"] as String
             collectorFlag = arguments!!["collector"] as String
+            checkStatus = arguments!!["checkStatus"] as Int
+
+            activity?.applicationContext?.let {
+                if (checkStatus == 1) (activity as MainActivity).supportActionBar?.title = it.getString(R.string.check_in_report)
+                if (checkStatus == 2) (activity as MainActivity).supportActionBar?.title = it.getString(R.string.check_out_report)
+            }
 
             clearList()
-            fetchReport(startDate, endDate, artNumber = artNumberFlag, color = colorFlag, description = descriptionFlag, store = storeFlag, collector = collectorFlag)
+            if (checkStatus == 1) fetchCheckInReport(startDate, endDate, artNumber = artNumberFlag, color = colorFlag, description = descriptionFlag, store = storeFlag, collector = collectorFlag)
+            if (checkStatus == 2) fetchOutReport(startDate, endDate, artNumber = artNumberFlag, color = colorFlag, description = descriptionFlag, store = storeFlag, collector = collectorFlag)
+
+            mAdapter.updateCheckStatus(checkStatus)
         }
     }
 
@@ -133,7 +155,7 @@ class ReportsViewFragment : Fragment() {
         }
     }
 
-    private fun fetchReport(
+    private fun fetchOutReport(
         startDate: String = "",
         endDate: String = "",
         artNumber: String = "",
@@ -143,13 +165,14 @@ class ReportsViewFragment : Fragment() {
         collector: String = ""
     ) {
         reportsProgressbar.visibility = View.VISIBLE
-        RetrofitClient.instance.searchReports(startDate, endDate, artNumber, color, description, store, collector)
+        RetrofitClient.instance.checkOutReports(startDate, endDate, artNumber, color, description, store, collector)
             .enqueue(object :
                 Callback<ReportsResponse> {
                 override fun onResponse(
                     call: Call<ReportsResponse>,
                     response: Response<ReportsResponse>
                 ) {
+                    Log.d("itemize", response.toString())
                     when (response.code()) {
                         200 -> {
                             reportsProgressbar.visibility = View.GONE
@@ -165,24 +188,15 @@ class ReportsViewFragment : Fragment() {
                                     item.storeId,
                                     item.collector,
                                     item.checkOutQuantity,
-                                    item.id
+                                    item.id,
+                                    2
                                 )
                                 itemList.add(reportItem)
                             }
                             if (itemList.size == 0) {
                                 reportsLabel.visibility = View.VISIBLE
                             } else {
-                                recyclerView.adapter = ReportListAdapter(object : ReportListAdapter.ListListener {
-                                    override fun editCheckOut(item: ReportItem) {
-                                        PasswordBottomSheet.newInstance(object : PasswordListener {
-                                            override fun confirm(value: String) {
-                                                showCheckOutBottomSheet(item)
-                                            }
-
-                                        }).show(childFragmentManager, "password")
-                                    }
-
-                                }, itemList)
+                                mAdapter.notifyDataSetChanged()
                             }
                         }
                         400 -> {
@@ -195,6 +209,67 @@ class ReportsViewFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<ReportsResponse>, t: Throwable) {
+                    reportsLabel.visibility = View.VISIBLE
+                    Log.e(TAG, t.message)
+                }
+            })
+    }
+
+    private fun fetchCheckInReport(
+        startDate: String = "",
+        endDate: String = "",
+        artNumber: String = "",
+        color: String = "",
+        description: String = "",
+        store: String = "",
+        collector: String = ""
+    ) {
+        reportsProgressbar.visibility = View.VISIBLE
+        RetrofitClient.instance.checkInReports(startDate, endDate, artNumber, color, description, store, collector)
+            .enqueue(object :
+                Callback<CheckInReportsResponse> {
+                override fun onResponse(
+                    call: Call<CheckInReportsResponse>,
+                    response: Response<CheckInReportsResponse>
+                ) {
+                    Log.d("itemize", response.toString())
+
+                    when (response.code()) {
+                        200 -> {
+                            reportsProgressbar.visibility = View.GONE
+                            for (item in response.body()!!.report) {
+                                val reportItem = ReportItem(
+                                    item.artNumber,
+                                    item.color,
+                                    item.description,
+                                    item.itemQuantity,
+                                    item.store,
+                                    item.checkoutTime,
+                                    item.itemId,
+                                    item.storeId,
+                                    item.collector,
+                                    item.checkOutQuantity,
+                                    item.id,
+                                    1
+                                )
+                                itemList.add(reportItem)
+                            }
+                            if (itemList.size == 0) {
+                                reportsLabel.visibility = View.VISIBLE
+                            } else {
+                                mAdapter.notifyDataSetChanged()
+                            }
+                        }
+                        400 -> {
+                            reportNotFound()
+                        }
+                        404 -> {
+                            reportNotFound()
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<CheckInReportsResponse>, t: Throwable) {
                     reportsLabel.visibility = View.VISIBLE
                     Log.e(TAG, t.message)
                 }
@@ -219,14 +294,13 @@ class ReportsViewFragment : Fragment() {
     private fun checkOutItemEdit(view : View, itemID : Int, checkOutID : Int, map: HashMap<String, Any>) {
         RetrofitClient.instance.editItem(itemID, checkOutID, map).enqueue(object : Callback<GenericResponse> {
             override fun onResponse(call: Call<GenericResponse>, response: Response<GenericResponse>) {
-                Log.d("checkouts", response.toString())
-                Log.d("checkouts", map.toString())
+
                 when (response.code()) {
                     200 -> {
                         Toast.makeText(activity, "Checkout Item edited Successfully.", Toast.LENGTH_LONG).show()
 
                         clearList()
-                        fetchReport(startDate, endDate, artNumber = artNumberFlag, color = colorFlag, description = descriptionFlag, store = storeFlag, collector = collectorFlag)
+                        fetchOutReport(startDate, endDate, artNumber = artNumberFlag, color = colorFlag, description = descriptionFlag, store = storeFlag, collector = collectorFlag)
                     }
                     else -> {
                         Toast.makeText(

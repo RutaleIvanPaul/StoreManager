@@ -8,26 +8,22 @@ import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.adapter.StoresAdapter
-import com.kotlin.ivanpaulrutale.storemanager.models.StoreResponse
 import com.kotlin.ivanpaulrutale.storemanager.models.Stores
 import com.kotlin.ivanpaulrutale.storemanager.network.RetrofitClient
 import com.kotlin.ivanpaulrutale.storemanager.utils.SelectionListener
+import com.kotlin.ivanpaulrutale.storemanager.utils.StoresSelection
 import kotlinx.android.synthetic.main.stores_bottom_sheet.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 /**
  * Created by Derick W on 21,January,2020
@@ -42,6 +38,7 @@ class StoreBottomSheet : BottomSheetDialogFragment() {
     private lateinit var adapter: StoresAdapter
     var serviceInstance = RetrofitClient
     lateinit var mCallback : SelectionListener
+    private lateinit var storeItemsViewModel: StoreItemsViewModel
 
     companion object {
         fun newInstance(services : RetrofitClient, selectionListener: SelectionListener) : StoreBottomSheet {
@@ -97,13 +94,15 @@ class StoreBottomSheet : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = StoresAdapter(activity!!.applicationContext, itemList)
+        storeItemsViewModel = ViewModelProvider(this).get(StoreItemsViewModel::class.java)
+
+        adapter = StoresAdapter(activity!!.applicationContext, itemList, object : StoresSelection { override fun noSelection() {} override fun selection() {} })
 
         val linearLayoutManager = LinearLayoutManager(activity)
         stores_recycler_view.layoutManager = linearLayoutManager
         stores_recycler_view.adapter = adapter
 
-        fetchStores()
+        fetchDbStores()
 
         next.setOnClickListener {
             dismiss()
@@ -111,32 +110,16 @@ class StoreBottomSheet : BottomSheetDialogFragment() {
         }
     }
 
-    private fun fetchStores() {
-        search_progressBar.visibility = View.VISIBLE
-        serviceInstance.instance.getStores().enqueue(object : Callback<StoreResponse> {
-            override fun onResponse(call: Call<StoreResponse>, response: Response<StoreResponse>) {
-                Log.d("stores", response.toString())
-                when (response.code()) {
-                    200 -> {
-                        search_progressBar.visibility = View.GONE
-                        next.visibility = View.VISIBLE
-                        itemList.addAll(response.body()!!.storeItems as MutableList<Stores>)
-                        adapter.notifyDataSetChanged()
-
-                    }
-                    400 -> {
-                        Toast.makeText(activity, "Stores not found", Toast.LENGTH_SHORT).show()
-                    }
-                    404 -> {
-                        Toast.makeText(activity, "Stores not found", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<StoreResponse>, t: Throwable) {
-                Log.e("Stores Loading: ", t.message)
-            }
-        })
+    private fun fetchDbStores() {
+        adapter.resetSelection()
+        if (itemList.isNotEmpty())
+            itemList.clear()
+        search_progressBar.visibility = View.GONE
+        itemList.addAll(getStores())
+        adapter.notifyDataSetChanged()
+        next.visibility = View.VISIBLE
     }
+
+    private fun getStores() : MutableList<Stores> = storeItemsViewModel.getAllStores()
 
 }

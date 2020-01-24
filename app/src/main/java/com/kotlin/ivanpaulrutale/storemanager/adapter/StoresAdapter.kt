@@ -9,13 +9,14 @@ import android.widget.CheckedTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.ivanpaulrutale.storemanager.R
 import com.kotlin.ivanpaulrutale.storemanager.models.Stores
+import com.kotlin.ivanpaulrutale.storemanager.utils.StoresSelection
 
 /**
  * Created by Derick W on 21,January,2020
  * Github: @wasswa-derick
  * Andela (Kampala, Uganda)
  */
-class StoresAdapter(val context: Context, private val listItem: MutableList<Stores>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class StoresAdapter(val context: Context, private val listItem: MutableList<Stores>, var mCallback : StoresSelection) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val inflater = LayoutInflater.from(context)!!
     private var row : Int = -1
@@ -55,10 +56,16 @@ class StoresAdapter(val context: Context, private val listItem: MutableList<Stor
         holder.storeName.setOnClickListener {
             row = position
             notifyDataSetChanged()
+            mCallback.selection()
         }
     }
 
     fun getSelectedStore() : Stores? {
         return listItem.find { it.selected }
+    }
+
+    fun resetSelection() {
+        row = -1
+        notifyDataSetChanged()
     }
 }

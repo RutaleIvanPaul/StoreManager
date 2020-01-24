@@ -4,4 +4,11 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
+
+    <dimen name="sz_10">10dp</dimen>
+    <dimen name="sz_12">12dp</dimen>
+    <dimen name="sz_14">14dp</dimen>
+    <dimen name="sz_24">10dp</dimen>
+    <dimen name="sz_48">10dp</dimen>
+    <dimen name="sz__48">48dp</dimen>
 </resources>

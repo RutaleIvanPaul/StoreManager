@@ -30,6 +30,15 @@ class ReportsResponse(
     val report: List<ReportItem>
 )
 
+class CheckInReportsResponse(
+    @SerializedName("success")
+    val success: Boolean,
+    @SerializedName("message")
+    val message: String,
+    @SerializedName("checkinReport")
+    val report: List<ReportItem>
+)
+
 class GenericResponse(
     @SerializedName("success")
     val success: Boolean,
@@ -106,7 +115,7 @@ class ReportItem(
 
     @SerializedName("collector")
     @Expose
-    val collector: String = "",
+    val collector: String? = "",
 
     @SerializedName("checkoutQuantity")
     @Expose
@@ -114,7 +123,9 @@ class ReportItem(
 
     @SerializedName("id")
     @Expose
-    val id: Int = 0
+    val id: Int = 0,
+
+    val type : Int
 )
 
 class SummarisedReportItem(

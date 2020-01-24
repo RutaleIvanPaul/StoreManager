@@ -1,5 +1,9 @@
 package com.kotlin.ivanpaulrutale.storemanager.models
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.Index
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
@@ -8,11 +12,18 @@ import com.google.gson.annotations.SerializedName
  * Github: @wasswa-derick
  * Andela (Kampala, Uganda)
  */
+@Entity(tableName = "stores", indices = [Index(value = ["id"], unique = true)])
 class Stores(
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "storeId")
+    var storeId: Int = 0,
+
+    @ColumnInfo(name = "id")
     @SerializedName("id")
     @Expose
     var id: Int = 0,
 
+    @ColumnInfo(name = "store")
     @SerializedName("store")
     @Expose
     var store: String = "",
